@@ -1,18 +1,19 @@
-import { Link } from "@inertiajs/react"
+import { SidebarProvider, SidebarTrigger } from "./ui/sidebar"
+import { AppSidebar } from "./app-sidebar"
 
-export default function Layout({ children }: { children: React.ReactNode; }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div>
-            <header>
-                <h1>Revlv PeraSlip</h1>
-            </header>
-            <main>{children}</main>
-            <Link href={route('logout')} method="post" as="button" className="text-blue-500 underline">
-                Logout
-            </Link>
-            <footer>
-                <p>&copy; 2025 Revlv PeraSlip</p>
-            </footer>
-        </div>
+        <SidebarProvider>
+            <AppSidebar/>
+            <div>
+                <main>
+                    <SidebarTrigger/>
+                    {children}
+                </main>
+                <footer>
+                    <p>&copy; 2025 Revlv PeraSlip</p>
+                </footer>
+            </div>
+        </SidebarProvider>
     )
 }

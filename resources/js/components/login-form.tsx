@@ -35,7 +35,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           <Input 
             id="email"
             type="email"
-            // value={data.email}
+            value={data.email}
             onChange={(e) => setData('email', e.target.value)}
             placeholder="example@revlv.com" 
             required 
@@ -54,7 +54,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           <Input 
             id="password"
             type="password"
-            // value={data.password}
+            value={data.password}
             onChange={(e) => setData('password', e.target.value)}
             required 
           />
