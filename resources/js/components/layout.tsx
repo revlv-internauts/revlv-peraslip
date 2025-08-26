@@ -1,4 +1,4 @@
-import { SidebarProvider, SidebarTrigger } from "./ui/sidebar"
+import { SidebarInset, SidebarProvider, SidebarTrigger, Sidebar } from "./ui/sidebar"
 import { AppSidebar } from "./app-sidebar"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -6,8 +6,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <SidebarProvider>
             <AppSidebar/>
             <div>
+                <SidebarTrigger/>
+                <header>
+                    <p>Revlv PeraSlip</p>
+                </header>
                 <main>
-                    <SidebarTrigger/>
                     {children}
                 </main>
                 <footer>
