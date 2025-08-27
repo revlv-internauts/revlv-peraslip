@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Resources\UserResource;
 use Inertia\Inertia;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-
-        return Inertia::render('Dashboard/Users/Index',
-            ['users' => UserResource::collection($users)]
-        );
+        return Inertia::render('Dashboard/Employees/Index');
     }
 
     /**

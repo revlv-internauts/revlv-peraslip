@@ -8,8 +8,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
   const { data, setData, post, processing, errors } = useForm({
-      email: 'kyle@mail.com',
-      password: 'password',
+      email: '',
+      password: '',
   })
 
   const errorArray = Object.values(errors);

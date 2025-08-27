@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 
 export default function Index() {
-    const user = 'Bosing'
+    const user = 'Kyle'
 
     return (
         <Layout>
