@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payrolls', function (Blueprint $table) {
-            $table->id('payroll_id')->primary()->unique();
+            $table->id('payroll_id');
             $table->string('employee_id');
-            $tbale->date('pay_period_start_date');
-            $tbale->date('pay_period_end_date');
+            $table->date('pay_period_start_date');
+            $table->date('pay_period_end_date');
             $table->decimal('gross_pay', 10, 2);
             $table->decimal('deductions', 10, 2);
             $table->decimal('taxes', 10, 2);
