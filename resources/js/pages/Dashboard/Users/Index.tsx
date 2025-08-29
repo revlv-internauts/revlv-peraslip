@@ -1,9 +1,12 @@
 import Layout from "@/components/layout"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Head } from "@inertiajs/react"
+import { dateFormatter } from "@/lib/dateFormatter";
 
 export default function Index({ users }) {
        return (
         <Layout>
+        <Head title="Users" />
             <Table>
                 <TableHeader>
                     <TableRow>
@@ -20,8 +23,8 @@ export default function Index({ users }) {
                         <TableCell>{user.id}</TableCell>
                         <TableCell><a href={`users/${user.id}`}> {user.full_name}</a></TableCell>
                         <TableCell>{user.email}</TableCell>
-                        <TableCell>{user.created_at}</TableCell>
-                        <TableCell>{user.updated_at}</TableCell>
+                        <TableCell>{dateFormatter(user.created_at)}</TableCell>
+                        <TableCell>{dateFormatter(user.updated_at)}</TableCell>
                     </TableRow>
                     ))}
                 </TableBody>

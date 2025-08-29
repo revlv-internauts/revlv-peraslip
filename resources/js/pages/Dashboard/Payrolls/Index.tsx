@@ -6,8 +6,8 @@ export default function Index() {
 
     return (
         <Layout>
-        <Head title="Dashboard" />
-            <h1>Welcome { user }!</h1>
+        <Head title="Payrolls" />
+            <h1>Welcome { user }! Payrolls</h1>
         </Layout>
     )
 }

@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Resources\UserResource;
 use Inertia\Inertia;
 
-class UserController extends Controller
+class PayrollController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::orderBy('id', 'asc')->get();
-
-        return Inertia::render('Dashboard/Users/Index',
-            ['users' => UserResource::collection($users)]
-        );
+        return Inertia::render('Dashboard/Payrolls/Index');
     }
 
     /**

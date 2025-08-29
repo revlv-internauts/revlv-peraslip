@@ -1,4 +1,4 @@
-import { Calendar, Inbox, Settings, LayoutDashboard, UsersRound, UserRound } from "lucide-react"
+import { Calendar, Inbox, Settings, LayoutDashboard, UsersRound, BanknoteArrowUp } from "lucide-react"
 
 import {
   Sidebar,
@@ -40,7 +40,12 @@ const data = {
     {
       title: "Employees",
       url: "/employees",
-      icon: UserRound,
+      icon: UsersRound,
+    },
+    {
+      title: "Payrolls",
+      url: "/payrolls",
+      icon: BanknoteArrowUp,
     },
     {
       title: "Inbox",
