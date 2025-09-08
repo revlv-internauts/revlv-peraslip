@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Department;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
@@ -24,6 +25,7 @@ class EmployeeFactory extends Factory
             'date_of_hiring' => fake()->date('Y-m-d'),
             'email' => fake()->unique()->safeEmail(),
             'phone_number' => fake()->unique()->numerify('09##-###-####'),
+            'department_name' => fake()->randomElement(Department::pluck('department_name')),
             'bank_number' => fake()->unique()->numerify('###-###-###-####'),
             'basic_pay' => fake()->randomNumber(3, 2),
             'sss_number' => fake()->unique()->numerify('##-#######-#'),

@@ -24,7 +24,7 @@ class Payroll extends Model
 
     public function employee(): BelongsTo
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 
     // $payrolls = Payroll::all(); // Retrieves all payroll records as a collection
