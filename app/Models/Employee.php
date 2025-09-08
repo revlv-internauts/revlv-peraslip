@@ -19,7 +19,7 @@ class Employee extends Model
         'date_of_hiring',
         'email',
         'phone_number',
-        'department_id',
+        'department_name',
         'bank_number',
         'basic_pay',
         'sss_number',
@@ -36,7 +36,7 @@ class Employee extends Model
 
     public function department(): BelongsTo
     {
-        return $this->belongsTo(Department::class, 'department_id');
+        return $this->belongsTo(Department::class, 'department_name');
     }
 
     // $employee = Employee::find($employeeId); // Find employee by ID

@@ -10,16 +10,12 @@ class Department extends Model
 {
     use HasFactory;
 
-    // protected $primaryKey = 'department_id';
-    // protected $keyType = 'int';
-    // public $incrementing = true;
-
     protected $fillable = [
         'department_name',
     ];
 
     public function employee(): HasMany
     {
-        return $this->hasMany(Employee::class, 'department_id');
+        return $this->hasMany(Employee::class, 'department_name');
     }
 }
