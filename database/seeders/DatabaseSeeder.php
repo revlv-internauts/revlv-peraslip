@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'first_name' => 'Admin',
-            'last_name' => '01',
-            'middle_name' => '',
-            'email' => 'admin@mail',
+            'first_name' => 'Kyle Matthew',
+            'last_name' => 'Poblete',
+            'middle_name' => 'Reyes',
+            'email' => 'kyle@mail',
             'password' => 'password',
         ]);
 

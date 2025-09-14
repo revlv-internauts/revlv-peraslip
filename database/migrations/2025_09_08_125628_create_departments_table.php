@@ -14,15 +14,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('departments', function (Blueprint $table) {
-            $table->id();
-            $table->string('department_name')->unique();
+            $table->id()->primary();
+            $table->string('name')->unique();
+            $table->string('abbr')->unique();
             $table->timestamps();
         });
 
         DB::table('departments')->insert([
-            ['department_name' => 'Software/IT Ops', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['department_name' => 'Network Operations Center', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['department_name' => 'Finance', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Software/IT Ops', 'abbr' => 'ITOps', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Network Operations Center', 'abbr' => 'NOC', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['name' => 'Finance', 'abbr' => 'FIN', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ]);
     }
 
