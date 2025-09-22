@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payrolls', function (Blueprint $table) {
-            $table->id();
-            $table->string('employee_id');
+            $table->uuid('id')->primary()->unique();
+            $table->uuid('employee_id');
             $table->date('pay_period_start_date');
             $table->date('pay_period_end_date');
             $table->decimal('gross_pay', 10, 2);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('payment_status');
             $table->timestamps();
 
-            $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

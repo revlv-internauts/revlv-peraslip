@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
 
         Employee::factory(5)->create();
 
-        Payroll::factory(5)->create();
+        Payroll::factory(20)->create();
     }
 }

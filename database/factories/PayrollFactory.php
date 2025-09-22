@@ -23,7 +23,7 @@ class PayrollFactory extends Factory
         $statuses = ['pending', 'processing', 'successful', 'error'];
 
         return [
-            'employee_id' => fake()->randomElement(Employee::pluck('employee_id')),
+            'employee_id' => fake()->randomElement(Employee::pluck('id')),
             'pay_period_start_date' => $startDate,
             'pay_period_end_date' => $endDate,
             'gross_pay' => fake()->randomNumber(3, 2),
