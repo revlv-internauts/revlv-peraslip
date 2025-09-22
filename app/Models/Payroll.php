@@ -11,6 +11,8 @@ class Payroll extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $primaryKey = 'id';
+
     public $incrementing = false;
 
     protected $keyType = 'string';
@@ -29,7 +31,7 @@ class Payroll extends Model
 
     public function employee(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'id');
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 
     // $payrolls = Payroll::all(); // Retrieves all payroll records as a collection

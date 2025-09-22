@@ -15,12 +15,6 @@ import { NavUser } from "./nav-user"
 import { NavHome } from "./nav-home"
 
 const data = {
-  // Footer
-  user: {
-    name: "Kyle Poblete",
-    email: "kyle@mail.com",
-    avatar: "avatars/luffy.jpeg",
-  },
   // Header
   navHome: {
     url: '/dashboard'
@@ -75,7 +69,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   )

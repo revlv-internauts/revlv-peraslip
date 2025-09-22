@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <AppSidebar/>
             <div>
                 <SidebarTrigger/>
-                <main>
+                <main className="flex-l overflow-auto p-4">
                     {children}
                 </main>
             </div>
