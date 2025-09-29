@@ -1,10 +1,10 @@
 import { useForm } from "@inertiajs/react"
 import { cn } from "@/lib/utils"
 import { AlertCircleIcon } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
   const { data, setData, post, processing, errors } = useForm({
@@ -37,8 +37,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
             type="email"
             value={data.email}
             onChange={(e) => setData('email', e.target.value)}
-            placeholder="example@revlv.com" 
-            required 
+            placeholder="e.g. user@revlv.com" 
           />
         </div>
         <div className="grid gap-3">
@@ -56,9 +55,9 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
             type="password"
             value={data.password}
             onChange={(e) => setData('password', e.target.value)}
-            required 
           />
         </div>
+
         {errorArray.length > 0 && (
           <Alert variant="destructive" className="bg-red-100">
             <AlertCircleIcon />
@@ -73,6 +72,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
             </AlertDescription>
           </Alert>
         )}
+
         <Button 
           type="submit"
           disabled={processing}

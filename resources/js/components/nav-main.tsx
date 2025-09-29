@@ -1,3 +1,4 @@
+import { LucideIcon } from "lucide-react"
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -6,7 +7,6 @@ import {
     SidebarMenuItem,
     SidebarMenuButton,
 } from "@/components/ui/sidebar"
-import { LucideIcon } from "lucide-react"
 
 export function NavMain({
    items, 

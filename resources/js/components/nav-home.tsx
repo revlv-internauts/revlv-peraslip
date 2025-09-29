@@ -1,9 +1,9 @@
+import { GalleryVerticalEnd } from "lucide-react"
 import {
     SidebarMenu,
     SidebarMenuItem,
     SidebarMenuButton,
 } from "@/components/ui/sidebar"
-import { GalleryVerticalEnd } from "lucide-react"
 
 export function NavHome({
   items,

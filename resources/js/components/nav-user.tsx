@@ -1,6 +1,5 @@
 import { Link } from "@inertiajs/react"
 import userAuth from "@/hooks/useAuth"
-
 import {
   BadgeCheck,
   Bell,
@@ -8,7 +7,6 @@ import {
   CreditCard,
   LogOut,
 } from "lucide-react"
-
 import {
   Avatar,
   AvatarFallback,
@@ -89,9 +87,9 @@ export function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-                <LogOut />
+                <LogOut /> 
                 <Link href={route('logout')} method="post" as="button">
-                    Log out
+                  Log out
                 </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>

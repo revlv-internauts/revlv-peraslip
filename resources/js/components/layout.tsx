@@ -1,16 +1,13 @@
-import { SidebarProvider, SidebarTrigger } from "./ui/sidebar"
 import { AppSidebar } from "./app-sidebar"
+import { SidebarProvider } from "./ui/sidebar"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <SidebarProvider>
             <AppSidebar/>
-            <div>
-                <SidebarTrigger/>
-                <main className="flex-l overflow-auto p-4">
-                    {children}
-                </main>
-            </div>
+            <main>
+                {children}
+            </main>
         </SidebarProvider>
     )
 }

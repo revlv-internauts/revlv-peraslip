@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserResource;
+use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -14,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'asc')->get();
+        $users = User::paginate(10);
+        // $users = User::orderBy('id', 'asc')
+        //     ->get();
 
         return Inertia::render('Dashboard/Users/Index',
             ['users' => UserResource::collection($users)]
@@ -26,23 +31,33 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Dashboard/Users/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
-        //
+        $user = User::create($request->only([
+            'first_name',
+            'last_name',
+            'middle_name',
+            'email',
+            'password',
+        ]));
+
+        return redirect('/users');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id = null)
     {
-        //
+        return Inertia::render('Dashboard/Users/Show', [
+            'user' => User::findOrFail($id),
+        ]);
     }
 
     /**
@@ -56,9 +71,23 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserUpdateRequest $request, $id = null)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $updateRequest = $request->validated();
+
+        if (!$request->filled('password')) {
+            unset($updateRequest['password']);
+        } else {
+            $updateRequest['password'] = Hash::make($request->input('password'));
+        }
+
+        $user->fill($updateRequest);
+
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**
@@ -66,6 +95,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
     }
 }

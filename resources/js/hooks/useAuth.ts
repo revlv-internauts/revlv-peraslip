@@ -11,6 +11,6 @@ export default function userAuth() {
     const { auth } = usePage<pageProps>().props;
     return {
         user: auth.user,
-        userType: auth.user?.type ?? "",
+        // userType: auth.user?.type ?? "",
     }
 }

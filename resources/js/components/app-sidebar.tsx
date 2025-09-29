@@ -1,5 +1,4 @@
 import { Calendar, Inbox, Settings, LayoutDashboard, UsersRound, BanknoteArrowUp } from "lucide-react"
-
 import {
   Sidebar,
   SidebarContent,

@@ -23,18 +23,8 @@ class DatabaseSeeder extends Seeder
         //     'password' => 'password',
         // ]);
 
-        User::factory()->create([
-            'first_name' => 'John',
-            'last_name' => 'Wick',
-            'middle_name' => 'Doe',
-            'email' => 'deer@mail',
-            'password' => 'password',
-        ]);
-
-        // User::factory(3)->create();
-
-        Employee::factory(5)->create();
-
-        Payroll::factory(20)->create();
+        User::factory(48)->create();
+        Employee::factory(2)->create();
+        // Payroll::factory(20)->create();
     }
 }
