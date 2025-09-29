@@ -7,7 +7,7 @@ interface pageProps {
     }
 }
 
-export default function userAuth() {
+export default function useAuth() {
     const { auth } = usePage<pageProps>().props;
     return {
         user: auth.user,

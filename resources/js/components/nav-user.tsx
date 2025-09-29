@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react"
-import userAuth from "@/hooks/useAuth"
+import useAuth from "@/hooks/useAuth"
 import {
   BadgeCheck,
   Bell,
@@ -30,7 +30,7 @@ import {
 
 export function NavUser() {
   const { isMobile } = useSidebar()
-  const { user } = userAuth()
+  const { user } = useAuth()
   console.log(user)
 
   return (
