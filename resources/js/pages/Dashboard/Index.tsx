@@ -1,9 +1,9 @@
 import Layout from "@/components/layout"
 import { Head } from "@inertiajs/react"
-import userAuth from "@/hooks/useAuth"
+import useAuth from "@/hooks/useAuth"
 
 export default function Index() {
-    const { user } = userAuth();
+    const { user } = useAuth();
 
     return (
         <Layout>
