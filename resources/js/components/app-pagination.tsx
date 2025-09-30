@@ -15,15 +15,20 @@ type PaginationProps = {
 }
 
 export default function AppPagination({ data }: PaginationProps) {
+    const paginationLinks = data.links.slice(1, -1)
+    const previousLink = data.links[0].url
+    const nextLink = data.links[data.links.length - 1].url
 
     return (
         <Pagination className="mt-4">
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious href={data.links[0].url}>
+                    <PaginationPrevious href={previousLink}>
                         <Link
-                            href={data.links[0].url}
-                            className={!data.links[0].url ? 'pointer-events-none opacity-50' : ''}
+                            href={previousLink}
+                            preserveScroll
+                            preserveState
+                            className={!previousLink ? 'pointer-events-none opacity-50' : ''}
                         >
                             <ChevronLeft />
                             Previous
@@ -31,7 +36,7 @@ export default function AppPagination({ data }: PaginationProps) {
                     </PaginationPrevious>
                 </PaginationItem>
 
-                {data.links.slice(1, -1).map((link, index) => (
+                {paginationLinks.map((link, index) => (
                     <PaginationItem key={index}>
                         <PaginationLink isActive={link.active}>
                             <Link href={link.url} className={`${link.active ? 'font-bold' : null}`}>
@@ -42,10 +47,12 @@ export default function AppPagination({ data }: PaginationProps) {
                 ))}
 
                     <PaginationItem>
-                        <PaginationNext href={data.links[data.links.length - 1].url}>
+                        <PaginationNext href={nextLink}>
                             <Link
-                                href={data.links[data.links.length - 1].url}
-                                className={!data.links[data.links.length - 1].url ? 'pointer-events-none opacity-50' : ''}
+                                href={nextLink}
+                                preserveScroll
+                                preserveState
+                                className={!nextLink ? 'pointer-events-none opacity-50' : ''}
                             >
                                 <ChevronRight />
                                 Next
