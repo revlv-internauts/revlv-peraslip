@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Payroll;
+use App\Models\Employee;
+use App\Http\Resources\EmployeeResource;
 
 class EmployeeController extends Controller
 {
@@ -13,12 +14,11 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $payrolls = Payroll::with('employee')
-            ->get();
+        $employees = Employee::all();
 
-        return Inertia::render('Dashboard/Employees/Index', [
-            'payrolls' => $payrolls,
-        ]);
+        return Inertia::render('Dashboard/Employees/Index', 
+            ['employees' => EmployeeResource::collection($employees)]
+        );
     }
 
     /**

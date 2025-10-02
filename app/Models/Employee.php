@@ -48,4 +48,9 @@ class Employee extends Model
 
     // $employee = Employee::find($employeeId); // Find employee by ID
     // $employeePayrolls = $employee->payrolls; // Access the related payrolls through the relations    
+
+    public function getFullName(): string
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
 }

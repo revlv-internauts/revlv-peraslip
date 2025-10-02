@@ -9,8 +9,8 @@ import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { dateFormatter } from "@/lib/dateFormatter";
 
-export default function Index({ payrolls }) {
-    console.log(payrolls);
+export default function Index({ employees }) {
+    console.log(employees);
     return (
         <Layout>
         <Head title="Employees" />
@@ -51,11 +51,11 @@ export default function Index({ payrolls }) {
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                    <TableHead>Payroll ID</TableHead>
                                     <TableHead>Employee ID</TableHead>
-                                    <TableHead>First Name</TableHead>
+                                    {/* <TableHead>First Name</TableHead>
                                     <TableHead>Last Name</TableHead>
-                                    <TableHead>Middle Name</TableHead>
+                                    <TableHead>Middle Name</TableHead> */}
+                                    <TableHead>Full Name</TableHead>
                                     <TableHead>Date of Hiring</TableHead>
                                     <TableHead>Email</TableHead>
                                     <TableHead>Phone Number</TableHead>
@@ -72,26 +72,27 @@ export default function Index({ payrolls }) {
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
-                                    {payrolls.map((payroll) => (
-                                    <TableRow key={payroll.id}>
-                                        <TableCell><a href={`employees/${payroll.employee.id}`}>{payroll.id}</a></TableCell>
-                                        <TableCell>{payroll.employee.employee_id}</TableCell>
-                                        <TableCell>{payroll.employee.first_name}</TableCell>
+                                    {employees.data.map((employee) => (
+                                    <TableRow key={employee.id}>
+                                        <TableCell><a href={`employees/${employee.id}`}>{employee.employee_id}</a></TableCell>
+                                        {/* <TableCell>{payroll.employee.employee_id}</TableCell> */}
+                                        {/* <TableCell>{payroll.employee.first_name}</TableCell>
                                         <TableCell>{payroll.employee.last_name}</TableCell>
-                                        <TableCell>{payroll.employee.middle_name}</TableCell>
-                                        <TableCell>{payroll.employee.date_of_hiring}</TableCell>
-                                        <TableCell>{payroll.employee.email}</TableCell>
-                                        <TableCell>{payroll.employee.phone_number}</TableCell>
-                                        <TableCell>{payroll.employee.department_id}</TableCell>
-                                        <TableCell>{payroll.employee.bank_number}</TableCell>
-                                        <TableCell>{payroll.employee.basic_pay}</TableCell>
-                                        <TableCell>{payroll.employee.sss_number}</TableCell>
-                                        <TableCell>{payroll.employee.umid_number}</TableCell>
-                                        <TableCell>{payroll.employee.philhealth_number}</TableCell>
-                                        <TableCell>{payroll.employee.pagibig_number}</TableCell>
-                                        <TableCell>{payroll.employee.tin_number}</TableCell>
-                                        <TableCell>{dateFormatter(payroll.created_at)}</TableCell>
-                                        <TableCell>{dateFormatter(payroll.updated_at)}</TableCell>
+                                        <TableCell>{payroll.employee.middle_name}</TableCell> */}
+                                        <TableCell>{employee.full_name}</TableCell>
+                                        <TableCell>{employee.date_of_hiring}</TableCell>
+                                        <TableCell>{employee.email}</TableCell>
+                                        <TableCell>{employee.phone_number}</TableCell>
+                                        <TableCell>{employee.department_id}</TableCell>
+                                        <TableCell>{employee.bank_number}</TableCell>
+                                        <TableCell>{employee.basic_pay}</TableCell>
+                                        <TableCell>{employee.sss_number}</TableCell>
+                                        <TableCell>{employee.umid_number}</TableCell>
+                                        <TableCell>{employee.philhealth_number}</TableCell>
+                                        <TableCell>{employee.pagibig_number}</TableCell>
+                                        <TableCell>{employee.tin_number}</TableCell>
+                                        <TableCell>{dateFormatter(employee.created_at)}</TableCell>
+                                        <TableCell>{dateFormatter(employee.updated_at)}</TableCell>
                                     </TableRow>
                                     ))}
                                 </TableBody>
