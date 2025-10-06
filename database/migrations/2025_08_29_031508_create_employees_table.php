@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('date_of_hiring');
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
-            $table->bigInteger('department_id');
+            // $table->bigInteger('department_id');
             // $table->string('employee_type');
             $table->string('bank_number')->unique();
             $table->decimal('basic_pay', 10, 2);
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('tin_number')->unique();
             $table->timestamps();
 
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            // $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
         });
     }
 

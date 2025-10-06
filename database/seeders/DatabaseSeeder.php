@@ -15,16 +15,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory()->create([
-        //     'first_name' => 'Admin',
-        //     'last_name' => '1',
-        //     'middle_name' => '',
-        //     'email' => 'admin@mail',
-        //     'password' => 'password',
-        // ]);
+        User::factory()->create([
+            'first_name' => 'Admin',
+            'last_name' => '1',
+            'middle_name' => '',
+            'email' => 'admin@mail',
+            'password' => 'password',
+        ]);
+        User::factory(19)->create();
 
-        User::factory(48)->create();
-        Employee::factory(2)->create();
-        // Payroll::factory(20)->create();
+        Employee::factory(20)->create();
+
+        // Department::factory()->create(
+        //     [
+        //         'name' => 'Software/IT Ops', 
+        //         'abbr' => 'ITOps',
+        //     ],
+        //     [
+        //         'name' => 'Network Operations Center', 
+        //         'abbr' => 'NOC',
+        //     ],
+        //     [
+        //         'name' => 'Finance', 
+        //         'abbr' => 'FIN',
+        //     ],
+        // );
+
+        Payroll::factory(30)->create();
     }
 }
