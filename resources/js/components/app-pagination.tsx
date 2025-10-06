@@ -1,65 +1,34 @@
 import { Link } from '@inertiajs/react'
 import { Meta } from '@/types/pagination'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import {
-    Pagination,
-    PaginationContent,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from '@/components/ui/pagination'
+import { cn } from '@/lib/utils'
 
 type PaginationProps = {
     data: Meta;
 }
 
 export default function AppPagination({ data }: PaginationProps) {
-    const paginationLinks = data.links.slice(1, -1)
-    const previousLink = data.links[0].url
-    const nextLink = data.links[data.links.length - 1].url
 
     return (
-        <Pagination className="mt-4">
-            <PaginationContent>
-                <PaginationItem>
-                    <PaginationPrevious href={previousLink}>
+        <nav className="flex justify-center mt-4">
+            <ul className="flex items-center space-x-2">
+                {data.links.map((link, index) => (
+                    <li key={index}>
                         <Link
-                            href={previousLink}
-                            preserveScroll
-                            preserveState
-                            className={!previousLink ? 'pointer-events-none opacity-50' : ''}
+                            href={link.url || '#'} 
+                            className={cn(
+                                "px-4 py-2 rounded-md border",
+                                link.active ? "bg-primary text-primary-foreground" : "bg-background text-foreground",
+                                link.url === null && "opacity-50 cursor-not-allowed" 
+                            )}
+                            preserveScroll 
+                            preserveState 
+                            disabled={link.url === null} 
                         >
-                            <ChevronLeft />
-                            Previous
+                            {link.label.includes('Previous') ? '« Previous' : link.label.includes('Next') ? 'Next »' : link.label}
                         </Link>
-                    </PaginationPrevious>
-                </PaginationItem>
-
-                {paginationLinks.map((link, index) => (
-                    <PaginationItem key={index}>
-                        <PaginationLink isActive={link.active}>
-                            <Link href={link.url} className={`${link.active ? 'font-bold' : null}`}>
-                                {link.label}
-                            </Link>
-                        </PaginationLink>
-                    </PaginationItem>
+                    </li>
                 ))}
-
-                    <PaginationItem>
-                        <PaginationNext href={nextLink}>
-                            <Link
-                                href={nextLink}
-                                preserveScroll
-                                preserveState
-                                className={!nextLink ? 'pointer-events-none opacity-50' : ''}
-                            >
-                                <ChevronRight />
-                                Next
-                            </Link>
-                        </PaginationNext>
-                    </PaginationItem>
-            </PaginationContent>
-        </Pagination>
+            </ul>
+        </nav>
     )
 }

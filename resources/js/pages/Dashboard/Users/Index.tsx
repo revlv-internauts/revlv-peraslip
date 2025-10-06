@@ -78,8 +78,8 @@ export default function Index({ users }: UserIndexProps) {
                                 ))}
                             </TableBody>
                         </Table>
-                        <AppPagination data={users.meta} />
                     </div>
+                    <AppPagination data={users.meta} />
                 </div>
             </SidebarInset>
         </Layout>
