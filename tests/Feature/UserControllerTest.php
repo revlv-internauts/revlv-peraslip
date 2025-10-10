@@ -9,10 +9,11 @@ use App\Models\User;
 
 class UserControllerTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
-    public function test_user_creation(): void
+    public function test_user_create(): void
     {
         $user = User::factory()->create();
 

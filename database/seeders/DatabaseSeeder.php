@@ -22,24 +22,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@mail',
             'password' => 'password',
         ]);
-        User::factory(19)->create();
+        User::factory()->create([
+            'first_name' => 'Kyle Matthew',
+            'last_name' => 'Poblete',
+            'middle_name' => 'Reyes',
+            'email' => 'kyle@revlv.com',
+            'password' => 'password',
+        ]);
+
+        User::factory(18)->create();
 
         Employee::factory(20)->create();
-
-        // Department::factory()->create(
-        //     [
-        //         'name' => 'Software/IT Ops', 
-        //         'abbr' => 'ITOps',
-        //     ],
-        //     [
-        //         'name' => 'Network Operations Center', 
-        //         'abbr' => 'NOC',
-        //     ],
-        //     [
-        //         'name' => 'Finance', 
-        //         'abbr' => 'FIN',
-        //     ],
-        // );
 
         Payroll::factory(30)->create();
     }
