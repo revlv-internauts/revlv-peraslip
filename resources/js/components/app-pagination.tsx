@@ -1,34 +1,76 @@
 import { Link } from '@inertiajs/react'
 import { Meta } from '@/types/pagination'
-import { cn } from '@/lib/utils'
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type PaginationProps = {
     data: Meta;
 }
 
 export default function AppPagination({ data }: PaginationProps) {
-
+    const prevLink = data.links.find(link => link.label === '&laquo; Previous');
+    const nextLink = data.links.find(link => link.label === 'Next &raquo;');
     return (
         <nav className="flex justify-center mt-4">
-            <ul className="flex items-center space-x-2">
-                {data.links.map((link, index) => (
-                    <li key={index}>
-                        <Link
-                            href={link.url || '#'} 
-                            className={cn(
-                                "px-4 py-2 rounded-md border",
-                                link.active ? "bg-primary text-primary-foreground" : "bg-background text-foreground",
-                                link.url === null && "opacity-50 cursor-not-allowed" 
-                            )}
-                            preserveScroll 
-                            preserveState 
-                            disabled={link.url === null} 
-                        >
-                            {link.label.includes('Previous') ? '« Previous' : link.label.includes('Next') ? 'Next »' : link.label}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            <div className="flex items-center space-x-2">
+                
+                {prevLink && prevLink.url ? (
+                    <Link
+                        href={prevLink.url}
+                        className="px-4 py-2 border rounded-md text-gray-700 hover:bg-gray-100 flex items-center"
+                        preserveState
+                        preserveScroll
+                    >
+                        <ChevronLeft className="h-4 w-4 mr-1" />
+                        Previous
+                    </Link>
+                ) : (
+                    <span className="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed flex items-center">
+                        <ChevronLeft className="h-4 w-4 mr-1" />
+                        Previous
+                    </span>
+                )}
+
+                {data.links.map((link, index) => {
+                    if (link.label !== '&laquo; Previous' && link.label !== 'Next &raquo;') {
+                        return link.url ? (
+                            <Link
+                                key={index}
+                                href={link.url}
+                                className={`px-4 py-2 border rounded-md ${
+                                link.active ? 'bg-red-800 text-white' : 'text-gray-700 hover:bg-gray-100'
+                                }`}
+                            >
+                                {link.label}
+                            </Link>
+                        ) : (
+                            <span
+                                key={index}
+                                className="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed"
+                            >
+                                {link.label}
+                            </span>
+                        );
+                    }
+                    return null;
+                })}
+
+                {nextLink && nextLink.url ? (
+                    <Link
+                        href={nextLink.url}
+                        className="px-4 py-2 border rounded-md text-gray-700 hover:bg-gray-100 flex items-center"
+                        preserveState
+                        preserveScroll
+                    >
+                        Next
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                    </Link>
+                ) : (
+                    <span className="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed flex items-center">
+                        Next
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                    </span>
+                )}
+            </div>
         </nav>
     )
 }
