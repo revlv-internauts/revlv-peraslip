@@ -10,7 +10,7 @@ export default function AppPagination({ data }: PaginationProps) {
     const prevLink = data.links.find(link => link.label === '&laquo; Previous');
     const nextLink = data.links.find(link => link.label === 'Next &raquo;');
     return (
-        <nav className="flex justify-center mt-4">
+        <nav className="flex justify-center">
             <div className="flex items-center space-x-2">
                 
                 {prevLink && prevLink.url ? (
@@ -20,13 +20,11 @@ export default function AppPagination({ data }: PaginationProps) {
                         preserveState
                         preserveScroll
                     >
-                        <ChevronLeft className="h-4 w-4 mr-1" />
-                        Previous
+                        <ChevronLeft className="h-6 w-4" />
                     </Link>
                 ) : (
                     <span className="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed flex items-center">
-                        <ChevronLeft className="h-4 w-4 mr-1" />
-                        Previous
+                        <ChevronLeft className="h-6 w-4" />
                     </span>
                 )}
 
@@ -61,13 +59,11 @@ export default function AppPagination({ data }: PaginationProps) {
                         preserveState
                         preserveScroll
                     >
-                        Next
-                        <ChevronRight className="h-4 w-4 ml-1" />
+                        <ChevronRight className="h-6 w-4" />
                     </Link>
                 ) : (
                     <span className="px-4 py-2 border rounded-md text-gray-400 cursor-not-allowed flex items-center">
-                        Next
-                        <ChevronRight className="h-4 w-4 ml-1" />
+                        <ChevronRight className="h-6 w-4" />
                     </span>
                 )}
             </div>
