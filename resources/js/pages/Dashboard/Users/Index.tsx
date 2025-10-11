@@ -47,12 +47,12 @@ export default function Index({ users }: UserIndexProps) {
                     <h1 className="text-2xl font-bold">List of Users</h1>
                     <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" >
                         <div className="flex justify-end p-2">
-                        <Link href="/users/create">
-                            <Button>
-                                <Plus />
-                                Add User
-                            </Button>
-                        </Link>
+                            <Link href="/users/create">
+                                <Button>
+                                    <Plus />
+                                    Add User
+                                </Button>
+                            </Link>
                         </div>
                         <Table>
                             <TableHeader>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Inertia\Inertia;
 use App\Models\Employee;
+use Illuminate\Http\Request;
 use App\Http\Resources\EmployeeResource;
+use App\Http\Requests\EmployeeCreateRequest;
+use Inertia\Inertia;
 
 class EmployeeController extends Controller
 {
@@ -26,15 +27,33 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Dashboard/Employees/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EmployeeCreateRequest $request)
     {
-        //
+        $employee = Employee::create($request->only([
+            'employee_id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'date_of_hiring',
+            'email',
+            'phone_number',
+            'department_id',
+            'bank_number',
+            'basic_pay',
+            'sss_number',
+            'umid_number',
+            'philhealth_number',
+            'pagibig_number',
+            'tin_number',
+        ]));
+
+        return redirect('/employees');
     }
 
     /**

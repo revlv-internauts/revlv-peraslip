@@ -86,8 +86,6 @@ class UserController extends Controller
         $user->fill($updateRequest);
 
         $user->save();
-
-        return redirect('/users');
     }
 
     /**

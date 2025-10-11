@@ -38,65 +38,65 @@ export default function Index({ employees }) {
                         <div className="bg-muted/50 aspect-video rounded-xl" />
                     </div> */}
                     <h1 className="text-2xl font-bold">List of Employees</h1>
-                    <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" >
-                        <div className="flex p-3">
-                        <Link href="#">
-                            <Button>
-                                <Plus />
-                                Add Employee
-                            </Button>
-                        </Link>
-                        </div>
+                    <div className="w-375 bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" >
                         <ScrollArea>
-                            <Table>
-                                <TableHeader>
-                                    <TableRow>
-                                    <TableHead>Employee ID</TableHead>
-                                    {/* <TableHead>First Name</TableHead>
-                                    <TableHead>Last Name</TableHead>
-                                    <TableHead>Middle Name</TableHead> */}
-                                    <TableHead>Full Name</TableHead>
-                                    <TableHead>Date of Hiring</TableHead>
-                                    <TableHead>Email</TableHead>
-                                    <TableHead>Phone Number</TableHead>
-                                    <TableHead>Department ID</TableHead>
-                                    <TableHead>Bank Number</TableHead>
-                                    <TableHead>Basic Pay</TableHead>
-                                    <TableHead>SSS ID</TableHead>
-                                    <TableHead>UMID ID</TableHead>
-                                    <TableHead>PhilHealth ID</TableHead>
-                                    <TableHead>Pag-IBIG ID</TableHead>
-                                    <TableHead>TIN ID</TableHead>
-                                    <TableHead>Created At</TableHead>
-                                    <TableHead>Updated At</TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    {employees.data.map((employee) => (
-                                    <TableRow key={employee.id}>
-                                        <TableCell><a href={`employees/${employee.id}`}>{employee.employee_id}</a></TableCell>
-                                        {/* <TableCell>{payroll.employee.employee_id}</TableCell> */}
-                                        {/* <TableCell>{payroll.employee.first_name}</TableCell>
-                                        <TableCell>{payroll.employee.last_name}</TableCell>
-                                        <TableCell>{payroll.employee.middle_name}</TableCell> */}
-                                        <TableCell>{employee.full_name}</TableCell>
-                                        <TableCell>{employee.date_of_hiring}</TableCell>
-                                        <TableCell>{employee.email}</TableCell>
-                                        <TableCell>{employee.phone_number}</TableCell>
-                                        <TableCell>{employee.department_id}</TableCell>
-                                        <TableCell>{employee.bank_number}</TableCell>
-                                        <TableCell>{employee.basic_pay}</TableCell>
-                                        <TableCell>{employee.sss_number}</TableCell>
-                                        <TableCell>{employee.umid_number}</TableCell>
-                                        <TableCell>{employee.philhealth_number}</TableCell>
-                                        <TableCell>{employee.pagibig_number}</TableCell>
-                                        <TableCell>{employee.tin_number}</TableCell>
-                                        <TableCell>{dateFormatter(employee.created_at)}</TableCell>
-                                        <TableCell>{dateFormatter(employee.updated_at)}</TableCell>
-                                    </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
+                                <div className="flex justify-end p-3">
+                                    <Link href="/employees/create">
+                                        <Button>
+                                            <Plus />
+                                            Add Employee
+                                        </Button>
+                                    </Link>
+                                </div>
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow>
+                                        <TableHead>Employee ID</TableHead>
+                                        {/* <TableHead>First Name</TableHead>
+                                        <TableHead>Last Name</TableHead>
+                                        <TableHead>Middle Name</TableHead> */}
+                                        <TableHead>Full Name</TableHead>
+                                        <TableHead>Date of Hiring</TableHead>
+                                        <TableHead>Email</TableHead>
+                                        <TableHead>Phone Number</TableHead>
+                                        <TableHead>Department ID</TableHead>
+                                        <TableHead>Bank Number</TableHead>
+                                        <TableHead>Basic Pay</TableHead>
+                                        <TableHead>SSS ID</TableHead>
+                                        <TableHead>UMID ID</TableHead>
+                                        <TableHead>PhilHealth ID</TableHead>
+                                        <TableHead>Pag-IBIG ID</TableHead>
+                                        <TableHead>TIN ID</TableHead>
+                                        <TableHead>Created At</TableHead>
+                                        <TableHead>Updated At</TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {employees.data.map((employee) => (
+                                        <TableRow key={employee.id}>
+                                            <TableCell><a href={`employees/${employee.id}`}>{employee.employee_id}</a></TableCell>
+                                            {/* <TableCell>{payroll.employee.employee_id}</TableCell> */}
+                                            {/* <TableCell>{payroll.employee.first_name}</TableCell>
+                                            <TableCell>{payroll.employee.last_name}</TableCell>
+                                            <TableCell>{payroll.employee.middle_name}</TableCell> */}
+                                            <TableCell>{employee.full_name}</TableCell>
+                                            <TableCell>{employee.date_of_hiring}</TableCell>
+                                            <TableCell>{employee.email}</TableCell>
+                                            <TableCell>{employee.phone_number}</TableCell>
+                                            <TableCell>{employee.department_id}</TableCell>
+                                            <TableCell>{employee.bank_number}</TableCell>
+                                            <TableCell>{employee.basic_pay}</TableCell>
+                                            <TableCell>{employee.sss_number}</TableCell>
+                                            <TableCell>{employee.umid_number}</TableCell>
+                                            <TableCell>{employee.philhealth_number}</TableCell>
+                                            <TableCell>{employee.pagibig_number}</TableCell>
+                                            <TableCell>{employee.tin_number}</TableCell>
+                                            <TableCell>{dateFormatter(employee.created_at)}</TableCell>
+                                            <TableCell>{dateFormatter(employee.updated_at)}</TableCell>
+                                        </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
                             <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                     </div>
