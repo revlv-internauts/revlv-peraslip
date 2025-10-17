@@ -22,21 +22,21 @@ class EmployeeCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'employee_id' => 'required|string|min:11|max:11',
+            'employee_id' => 'required|string|min:11',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'middle_name' => 'nullable|string',
-            'date_of_hiring' => 'required',
+            'date_of_hiring' => 'required|string',
             'email' => 'required|string|email',
-            'phone_number' => 'required|string|min:11|max:11',
+            'phone_number' => 'required|string|min:11',
             'department_id' => 'required',
-            'bank_number' => 'required|string|min:13|max:13',
+            'bank_number' => 'required|string|min:13',
             'basic_pay' => 'required|integer|min:200',
-            'sss_number' => 'required|string|min:10|max:10',
-            'umid_number' => 'required|string|min:12|max:12',
-            'philhealth_number' => 'required|string|min:12|max:12',
-            'pagibig_number' => 'required|string|min:12|max:12',
-            'tin_number' => 'required|string|min:9|max:9',
+            'sss_number' => 'required|string|min:10',
+            'umid_number' => 'required|string|min:12',
+            'philhealth_number' => 'required|string|min:12',
+            'pagibig_number' => 'required|string|min:12',
+            'tin_number' => 'required|string|min:9',
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Requests\EmployeeCreateRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use Inertia\Inertia;
 
 class EmployeeController extends Controller
@@ -17,7 +18,7 @@ class EmployeeController extends Controller
     {
         $employees = Employee::paginate(10);
 
-        return Inertia::render('Dashboard/Employees/Index', 
+        return Inertia::render('dashboard/employees/index', 
             ['employees' => EmployeeResource::collection($employees)]
         );
     }
@@ -27,7 +28,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Dashboard/Employees/Create');
+        return Inertia::render('dashboard/employees/create');
     }
 
     /**
@@ -59,9 +60,11 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id = null)
     {
-        //
+        return Inertia::render('dashboard/employee/show', [
+            'employee' => Employee::findOrFail($id),
+        ]);
     }
 
     /**
@@ -75,9 +78,21 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EmployeeUpdateRequest $request, $id = null)
     {
-        //
+        $employee = Employee::findOrFail($id);
+
+        $updateRequest = $request->validated();
+
+        // if (!$request->filled('password')) {
+        //     unset($updateRequest['password']);
+        // } else {
+        //     $updateRequest['password'] = Hash::make($request->input('password'));
+        // }
+
+        $employee->fill($updateRequest);
+
+        $employee->save();
     }
 
     /**

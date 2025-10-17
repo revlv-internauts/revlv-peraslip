@@ -17,7 +17,7 @@ class PayrollController extends Controller
         $payrolls = Payroll::with('employee')
             ->get();
 
-        return Inertia::render('Dashboard/Payrolls/Index', [
+        return Inertia::render('dashboard/payrolls/index', [
             'payrolls' => $payrolls,
         ]);
     }

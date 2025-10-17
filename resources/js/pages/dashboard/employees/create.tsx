@@ -1,5 +1,5 @@
 import Layout from "@/components/layout"
-import { Head, useForm } from "@inertiajs/react"
+import { Head, Link, useForm } from "@inertiajs/react"
 import { AlertCircleIcon } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
@@ -50,9 +50,9 @@ export default function Create() {
                         <Breadcrumb>
                             <BreadcrumbList>
                                 <BreadcrumbItem className="text-base font-medium hidden md:block">
-                                    <BreadcrumbLink href="/users">
+                                    <Link href="/employees">
                                         Employees
-                                    </BreadcrumbLink>
+                                    </Link>
                                 </BreadcrumbItem>
                                     <BreadcrumbSeparator className="hidden md:block" /> 
                                 <BreadcrumbItem className="text-base font-medium">
@@ -80,6 +80,22 @@ export default function Create() {
                             Enter a valid employee id for creating an employee
                             </p>
                         </div>
+
+                        {errorArray.length > 0 && (
+                        <Alert variant="destructive" className="bg-red-100">
+                            <AlertCircleIcon />
+                            <AlertTitle>Create Employee Failed.</AlertTitle>
+                            <AlertDescription>
+                            <p>{errorArray.length} error/s with your submission:</p>
+                            <ul className="list-inside list-disc text-sm">
+                                {errorArray.map((err, index) => (
+                                <li key={index}>{err}</li>
+                                ))}
+                            </ul>
+                            </AlertDescription>
+                        </Alert>
+                        )}
+
                         <div className="grid gap-6">
                             <div className="grid gap-3">
                             <Label htmlFor="employee_id">Employee ID</Label>
@@ -89,6 +105,7 @@ export default function Create() {
                                 value={data.employee_id}
                                 onChange={(e) => setData('employee_id', e.target.value)}
                                 placeholder="e.g. 00000000000" 
+                                maxLength={11}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -149,6 +166,7 @@ export default function Create() {
                                 value={data.phone_number}
                                 onChange={(e) => setData('phone_number', e.target.value)}
                                 placeholder="e.g. 00000000000" 
+                                maxLength={11}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -168,7 +186,8 @@ export default function Create() {
                                 type="text"
                                 value={data.bank_number}
                                 onChange={(e) => setData('bank_number', e.target.value)}
-                                placeholder="e.g. 00000000000000" 
+                                placeholder="e.g. 0000000000000" 
+                                maxLength={13}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -189,6 +208,7 @@ export default function Create() {
                                 value={data.sss_number}
                                 onChange={(e) => setData('sss_number', e.target.value)}
                                 placeholder="e.g. 0000000000" 
+                                maxLength={10}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -199,6 +219,7 @@ export default function Create() {
                                 value={data.umid_number}
                                 onChange={(e) => setData('umid_number', e.target.value)}
                                 placeholder="e.g. 000000000000" 
+                                maxLength={12}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -209,6 +230,7 @@ export default function Create() {
                                 value={data.philhealth_number}
                                 onChange={(e) => setData('philhealth_number', e.target.value)}
                                 placeholder="e.g. 000000000000" 
+                                maxLength={12}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -219,6 +241,7 @@ export default function Create() {
                                 value={data.pagibig_number}
                                 onChange={(e) => setData('pagibig_number', e.target.value)}
                                 placeholder="e.g. 000000000000" 
+                                maxLength={12}
                             />
                             </div>
                             <div className="grid gap-3">
@@ -229,23 +252,9 @@ export default function Create() {
                                 value={data.tin_number}
                                 onChange={(e) => setData('tin_number', e.target.value)}
                                 placeholder="e.g. 000000000" 
+                                maxLength={9}
                             />
                             </div>
-
-                            {errorArray.length > 0 && (
-                            <Alert variant="destructive" className="bg-red-100">
-                                <AlertCircleIcon />
-                                <AlertTitle>Create Failed.</AlertTitle>
-                                <AlertDescription>
-                                <p>{errorArray.length} error/s with your submission:</p>
-                                <ul className="list-inside list-disc text-sm">
-                                    {errorArray.map((err, index) => (
-                                    <li key={index}>{err}</li>
-                                    ))}
-                                </ul>
-                                </AlertDescription>
-                            </Alert>
-                            )}
 
                             <Button 
                             type="submit"

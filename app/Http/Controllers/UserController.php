@@ -6,8 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserResource;
-use App\Http\Requests\UserCreateRequest;
-use App\Http\Requests\UserUpdateRequest;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -17,13 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::orderBy('updated_at', 'desc')
+            ->paginate(13);
         // $users = User::orderBy('id', 'asc')
         //     ->get();
 
-        return Inertia::render('Dashboard/Users/Index',
-            ['users' => UserResource::collection($users)]
-        );
+        return Inertia::render('dashboard/users/index', [
+            'users' => UserResource::collection($users)
+        ]);
     }
 
     /**
@@ -31,70 +30,81 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Dashboard/Users/Create');
+        return Inertia::render('dashboard/users/create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserCreateRequest $request)
+    public function store(Request $request)
     {
-        $user = User::create($request->only([
-            'first_name',
-            'last_name',
-            'middle_name',
-            'email',
-            'password',
-        ]));
+        $request->validate([
+            'first_name' => ['required', 'string'],
+            'last_name' => ['required', 'string'],
+            'middle_name' => ['required', 'string', 'nullable'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:8', 'confirmed'],
+        ]);
 
-        return redirect('/users');
+        // User::create([
+        //     'role' => 'user',
+        //     'name' => $request->name,
+        //     'title' => $request->title,
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        // ]);
+        // $request->offsetSet('role', 'user'); // sets the default role when not specified
+
+        User::create($request->all());
+
+        return to_route('users.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id = null)
+    public function show(User $user)
     {
-        return Inertia::render('Dashboard/Users/Show', [
-            'user' => User::findOrFail($id),
+        return Inertia::render('dashboard/users/show', [
+            'user' => $user,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return Inertia::render('dashboard/users/edit', [
+            'user' => $user,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUpdateRequest $request, $id = null)
+    public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
+        $request->validate([
+            'first_name' => ['required', 'string'],
+            'last_name' => ['required', 'string'],
+            'middle_name' => ['required', 'string', 'nullable'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:8', 'confirmed'],
+        ]);
 
-        $updateRequest = $request->validated();
+        $user->update($request->all());
 
-        if (!$request->filled('password')) {
-            unset($updateRequest['password']);
-        } else {
-            $updateRequest['password'] = Hash::make($request->input('password'));
-        }
-
-        $user->fill($updateRequest);
-
-        $user->save();
+        return to_route('users.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
-
         $user->delete();
+
+        return to_route('users.index');
     }
 }

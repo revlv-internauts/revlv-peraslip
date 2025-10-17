@@ -1,17 +1,17 @@
 import Layout from "@/components/layout"
 import { User } from "@/types"
-import { useForm, usePage, Head } from "@inertiajs/react"
+import { useForm, usePage, Head, Link } from "@inertiajs/react"
 import { AlertCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { dateFormatter } from "@/lib/dateFormatter"
 
-type userIndexProps = {
+type UserIndexProps = {
     user: {
         data: Array<User>,
         id: number,
@@ -25,8 +25,8 @@ type userIndexProps = {
     }
 }
 
-export default function Create() {
-    const { user }: userIndexProps = usePage<userIndexProps>().props;
+export default function Show() {
+    const { user }: UserIndexProps = usePage<UserIndexProps>().props
     
     const { data, errors, setData, put, processing } = useForm({
         id: user.id,
@@ -62,9 +62,9 @@ export default function Create() {
                         <Breadcrumb>
                             <BreadcrumbList>
                                 <BreadcrumbItem className="text-base font-medium hidden md:block">
-                                    <BreadcrumbLink href="/users">
+                                    <Link href="/users">
                                         Users
-                                    </BreadcrumbLink>
+                                    </Link>
                                 </BreadcrumbItem>
                                     <BreadcrumbSeparator className="hidden md:block" /> 
                                 <BreadcrumbItem className="text-base font-medium">
