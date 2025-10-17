@@ -1,4 +1,7 @@
+import { Link } from "@inertiajs/react"
+import { LayoutDashboard, UserRound, UsersRound, BanknoteArrowUp } from "lucide-react"
 import { LucideIcon } from "lucide-react"
+import { Button } from "./ui/button"
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -8,32 +11,46 @@ import {
     SidebarMenuButton,
 } from "@/components/ui/sidebar"
 
-export function NavMain({
-   items, 
-}: {
-    items: {
-        title: string
-        url: string
-        icon: LucideIcon
-    }[]
-}) {
+export function NavMain() {
     return (
-        <SidebarGroup>
-          <SidebarGroupLabel>Menu</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      <SidebarGroup>
+        <SidebarGroupLabel>Menu</SidebarGroupLabel>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <Link href="/dashboard" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <LayoutDashboard />
+                  Dashboard
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href="/users" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <UserRound />
+                  Users
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href="/employees" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <UsersRound />
+                  Employees
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href="/payrolls" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <BanknoteArrowUp />
+                  Payrolls
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroupContent>
+      </SidebarGroup>
     )
 }

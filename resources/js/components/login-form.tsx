@@ -1,6 +1,6 @@
 import { useForm } from "@inertiajs/react"
 import { cn } from "@/lib/utils"
-import { AlertCircleIcon } from "lucide-react"
+import { AlertCircleIcon, Mail } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -31,6 +31,22 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           Enter your email below to login to your account
         </p>
       </div>
+
+      {errorArray.length > 0 && (
+        <Alert variant="destructive">
+          <AlertCircleIcon />
+          <AlertTitle>Unable to login.</AlertTitle>
+          <AlertDescription>
+            <p>Please verify your login credentials and try again.</p>
+            <ul className="list-inside list-disc text-sm">
+              {errorArray.map((err, index) => (
+                <li key={index}>{err}</li>
+              ))}
+            </ul>
+          </AlertDescription>
+        </Alert>
+      )}
+
       <div className="grid gap-6">
         <div className="grid gap-3">
           <Label htmlFor="email">Email</Label>
@@ -60,21 +76,6 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           />
         </div>
 
-        {errorArray.length > 0 && (
-          <Alert variant="destructive" className="bg-red-100">
-            <AlertCircleIcon />
-            <AlertTitle>Unable to login.</AlertTitle>
-            <AlertDescription>
-              <p>Please verify your login credentials and try again.</p>
-              <ul className="list-inside list-disc text-sm">
-                {errorArray.map((err, index) => (
-                  <li key={index}>{err}</li>
-                ))}
-              </ul>
-            </AlertDescription>
-          </Alert>
-        )}
-
         <Button 
           type="submit"
           disabled={processing}
@@ -95,13 +96,17 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           </svg>
           Login with GitHub
         </Button>
+        <Button variant="outline" className="w-full">
+          <Mail /> 
+          Login with Email
+        </Button>
       </div>
-      <div className="text-center text-sm">
+      {/* <div className="text-center text-sm">
         Don&apos;t have an account?{" "}
         <a href="#" className="underline underline-offset-4">
           Sign up
         </a>
-      </div>
+      </div> */}
     </form>
   )
 }

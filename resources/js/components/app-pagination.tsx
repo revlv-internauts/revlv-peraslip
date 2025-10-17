@@ -35,7 +35,7 @@ export default function AppPagination({ data }: PaginationProps) {
                                 key={index}
                                 href={link.url}
                                 className={`px-4 py-2 border rounded-md ${
-                                link.active ? 'bg-red-800 text-white' : 'text-gray-700 hover:bg-gray-100'
+                                link.active ? 'bg-red-700 text-white' : 'text-gray-700 hover:bg-gray-100'
                                 }`}
                             >
                                 {link.label}
