@@ -1,7 +1,5 @@
 import { Link } from "@inertiajs/react"
 import { LayoutDashboard, UserRound, UsersRound, BanknoteArrowUp } from "lucide-react"
-import { LucideIcon } from "lucide-react"
-import { Button } from "./ui/button"
 import {
     SidebarGroup,
     SidebarGroupLabel,
