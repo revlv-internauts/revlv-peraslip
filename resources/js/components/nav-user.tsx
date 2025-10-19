@@ -86,7 +86,7 @@ export function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={route('logout')} method="post" as="button" className="flex items-center w-full text-left">
+              <Link href="/logout" method="post" as="button" className="flex items-center w-full text-left">
                 <LogOut className="mr-2 h-4 w-4" /> 
                 Log out
               </Link>

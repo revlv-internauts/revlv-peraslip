@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react"
-import { LayoutDashboard, UserRound, UsersRound, BanknoteArrowUp } from "lucide-react"
+import { LayoutDashboard, UserRound, UsersRound, BanknoteArrowUp, Settings } from "lucide-react"
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -24,14 +24,6 @@ export function NavMain() {
               </Link>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <Link href="/users" className="w-full">
-                <SidebarMenuButton className="w-full justify-start">
-                  <UserRound />
-                  Users
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
               <Link href="/employees" className="w-full">
                 <SidebarMenuButton className="w-full justify-start">
                   <UsersRound />
@@ -44,6 +36,22 @@ export function NavMain() {
                 <SidebarMenuButton className="w-full justify-start">
                   <BanknoteArrowUp />
                   Payrolls
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href="/users" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <UserRound />
+                  Users
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href="#" className="w-full">
+                <SidebarMenuButton className="w-full justify-start">
+                  <Settings />
+                  Settings
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
