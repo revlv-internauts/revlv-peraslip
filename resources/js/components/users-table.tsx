@@ -17,7 +17,7 @@ type UserIndexProps = {
 export function UsersTable({ users }: UserIndexProps) {
     return (
         <>
-            <div className="sm:flex sm:items-center">
+            <div className="sm:flex sm:items-center mt-2">
                 <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold text-gray-900">Users</h1>
                     <p className="mt-2 text-sm text-gray-700">
@@ -47,7 +47,7 @@ export function UsersTable({ users }: UserIndexProps) {
                     <TableBody>
                         {users.data.map((user) => (
                         <TableRow key={user.id}>
-                            <TableCell><Link href={`users/${user.id}`}> {user.full_name}</Link></TableCell>
+                            <TableCell><Link href={`/users/${user.id}`}> {user.full_name}</Link></TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{dateFormatter(user.created_at)}</TableCell>
                             <TableCell>{dateFormatter(user.updated_at)}</TableCell>

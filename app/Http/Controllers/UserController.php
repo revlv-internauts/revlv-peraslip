@@ -41,7 +41,7 @@ class UserController extends Controller
         $request->validate([
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
-            'middle_name' => ['required', 'string', 'nullable'],
+            'middle_name' => ['string', 'nullable'],
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'confirmed'],
         ]);
@@ -88,7 +88,7 @@ class UserController extends Controller
         $request->validate([
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
-            'middle_name' => ['required', 'string', 'nullable'],
+            'middle_name' => ['string', 'nullable'],
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'confirmed'],
         ]);
