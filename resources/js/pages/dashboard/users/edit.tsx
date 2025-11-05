@@ -11,7 +11,7 @@ export default function Edit({ user }: any) {
         <Layout>
         <Head title="Users - Edit" />
             <SidebarInset>
-                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+                <header className="flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <div className="flex items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />
                             <Separator
@@ -53,7 +53,7 @@ export default function Edit({ user }: any) {
                         <>
                             <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <h2 className="text-base/7 font-semibold text-gray-900">User Information - ID: {user.id}</h2>
+                                    <h2 className="text-base/7 font-semibold text-gray-900">User Information | ID: {user.id}</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Edit with safety precautions.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                                         <div className="sm:col-span-4">

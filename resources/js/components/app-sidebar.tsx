@@ -1,4 +1,4 @@
-import { Calendar, Inbox, Settings, LayoutDashboard, UsersRound, BanknoteArrowUp, UserRound } from "lucide-react"
+import { Calendar, Inbox, Settings, LayoutDashboard, User, Banknote, Users } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -24,24 +24,24 @@ const data = {
     {
       title: "Employees",
       url: "/employees",
-      icon: UsersRound
+      icon: User
     },
     {
       title: "Payrolls",
       url: "/payrolls",
-      icon: BanknoteArrowUp
+      icon: Banknote
     },
     {
       title: "Users",
       url: "/users",
-      icon: UserRound
+      icon: Users
     },
   ],
   navEmployeeSettings: [
     {
       title: "Users",
       url: "/users",
-      icon: UserRound,
+      icon: Users,
       items: [
         {
           title: "View",

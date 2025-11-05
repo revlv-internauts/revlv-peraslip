@@ -39,11 +39,27 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
-            'middle_name' => ['string', 'nullable'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:8', 'confirmed'],
+            'first_name' => [
+                'required', 
+                'string'
+            ],
+            'last_name' => [
+                'required',
+                'string'
+            ],
+            'middle_name' => [
+                'string',
+                'nullable'
+            ],
+            'email' => [
+                'required',
+                'email'
+            ],
+            'password' => [
+                'required',
+                'min:8',
+                'confirmed'
+            ],
         ]);
 
         // User::create([
@@ -86,11 +102,27 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
-            'middle_name' => ['string', 'nullable'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:8', 'confirmed'],
+            'first_name' => [
+                'required', 
+                'string'
+            ],
+            'last_name' => [
+                'required',
+                'string'
+            ],
+            'middle_name' => [
+                'string',
+                'nullable'
+            ],
+            'email' => [
+                'required',
+                'email'
+            ],
+            'password' => [
+                'required',
+                'min:8',
+                'confirmed'
+            ],
         ]);
 
         $user->update($request->all());

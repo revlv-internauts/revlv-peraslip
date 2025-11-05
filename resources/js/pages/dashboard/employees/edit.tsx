@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Create() {
+export default function Edit({ employee }: any) {
     return (
         <Layout>
-        <Head title="Employees - Create" />
+        <Head title="Employees - Edit" />
             <SidebarInset>
-                <header className="flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <div className="flex items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />
                             <Separator
@@ -27,13 +27,13 @@ export default function Create() {
                                 </BreadcrumbItem>
                                     <BreadcrumbSeparator className="hidden md:block" /> 
                                 <BreadcrumbItem className="text-base font-medium">
-                                    <BreadcrumbPage>Create</BreadcrumbPage>
+                                    <BreadcrumbPage>Edit</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
                         </Breadcrumb>
                     </div>
                 </header>
-                <Form action="/employees" method="POST" className="px-8">
+                <Form action={`/employees/${employee.id}`} method="PUT" className="px-8">
                     {({
                         errors,
                         hasErrors,
@@ -51,10 +51,10 @@ export default function Create() {
 
                     }) => (
                         <>
-                            <div className="space-y-16">
+                            <div className="space-y-12">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <h2 className="text-base/7 font-semibold text-gray-900">Employee Information</h2>
-                                    <p className="mt-1 text-sm/6 text-gray-600">Use a valid revlv email for creating an employee.</p>
+                                    <h2 className="text-base/7 font-semibold text-gray-900">Employee Information | Employee ID: {employee.employee_id}</h2>
+                                    <p className="mt-1 text-sm/6 text-gray-600">Edit with safety precautions.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                                         <div className="sm:col-span-4">
                                             <label htmlFor="employee_id" className="block text-sm/6 font-medium text-gray-900">
@@ -64,6 +64,7 @@ export default function Create() {
                                                 <input
                                                     id="employee_id"
                                                     name="employee_id"
+                                                    defaultValue={employee.employee_id}
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
                                                 />
@@ -78,6 +79,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="first_name"
+                                                    defaultValue={employee.first_name}
                                                     name="first_name"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -93,6 +95,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="last_name"
+                                                    defaultValue={employee.last_name}
                                                     name="last_name"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -108,6 +111,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="middle_name"
+                                                    defaultValue={employee.middle_name}
                                                     name="middle_name"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -123,6 +127,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="date_of_hiring"
+                                                    defaultValue={employee.date_of_hiring}
                                                     name="date_of_hiring"
                                                     type="date"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -138,6 +143,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="email"
+                                                    defaultValue={employee.email}
                                                     name="email"
                                                     type="email"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -153,6 +159,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="phone_number"
+                                                    defaultValue={employee.phone_number}
                                                     name="phone_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -168,6 +175,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="department_id"
+                                                    defaultValue={employee.department_id}
                                                     name="department_id"
                                                     type="number"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -183,6 +191,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="bank_number"
+                                                    defaultValue={employee.bank_number}
                                                     name="bank_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -198,6 +207,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="basic_pay"
+                                                    defaultValue={employee.basic_pay}
                                                     name="basic_pay"
                                                     type="number"
                                                     min={200}
@@ -214,6 +224,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="sss_number"
+                                                    defaultValue={employee.sss_number}
                                                     name="sss_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -229,6 +240,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="umid_number"
+                                                    defaultValue={employee.umid_number}
                                                     name="umid_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -244,6 +256,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="philhealth_number"
+                                                    defaultValue={employee.philhealth_number}
                                                     name="philhealth_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -259,6 +272,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="pagibig_number"
+                                                    defaultValue={employee.pagibig_number}
                                                     name="pagibig_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -274,6 +288,7 @@ export default function Create() {
                                             <div className="mt-2">
                                                 <input
                                                     id="tin_number"
+                                                    defaultValue={employee.tin_number}
                                                     name="tin_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
@@ -292,7 +307,7 @@ export default function Create() {
                                     disabled={processing}
                                     className="w-36 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs"
                                 >
-                                    {processing ? 'Creating User...' : 'Create'}
+                                    {processing ? 'Updating employee...' : 'Update'}
                                 </Button>
                             </div>
                         </>
