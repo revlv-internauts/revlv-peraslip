@@ -8,43 +8,36 @@ import {
   SidebarMenuItem,
   SidebarMenuButton
 } from "@/components/ui/sidebar"
-import { NavDashboard } from "./nav-dashboard"
-import { NavMain } from "./nav-main"
-import { NavUser } from "./nav-user"
 import { NavHome } from "./nav-home"
+import { NavMain } from "./nav-main"
+import { NavEmployeeSettings } from "./nav-employee-settings"
+import { NavUser } from "./nav-user"
 
 const data = {
   // Menu Items
-  navDashboard: [
+  navMain: [
     {
       title: "Dashboard",
       url: "/dashboard",
       icon: LayoutDashboard
-    }
-  ],
-  navMain: [
+    },
     {
       title: "Employees",
       url: "/employees",
-      icon: UsersRound,
-      items: [
-        {
-          title: "View",
-          url: "/employees",
-        },
-      ],
+      icon: UsersRound
     },
     {
       title: "Payrolls",
       url: "/payrolls",
-      icon: BanknoteArrowUp,
-      items: [
-        {
-          title: "View",
-          url: "/payrolls",
-        },
-      ],
+      icon: BanknoteArrowUp
     },
+    {
+      title: "Users",
+      url: "/users",
+      icon: UserRound
+    },
+  ],
+  navEmployeeSettings: [
     {
       title: "Users",
       url: "/users",
@@ -66,8 +59,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavHome />
       </SidebarHeader>
       <SidebarContent>
-        <NavDashboard items={data.navDashboard} />
-        <NavMain items={data.navMain}/>
+        <NavMain items={data.navMain} />
+        <NavEmployeeSettings items={data.navEmployeeSettings}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser />
