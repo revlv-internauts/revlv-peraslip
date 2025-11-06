@@ -51,9 +51,9 @@ export default function Edit({ user }: any) {
 
                     }) => (
                         <>
-                            <div className="space-y-12">
+                            <div className="space-y-12 mt-4">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <h2 className="text-base/7 font-semibold text-gray-900">User Information | ID: {user.id}</h2>
+                                    <h2 className="text-base/7 font-semibold text-gray-900">Information for User ID: {user.id}</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Edit with safety precautions.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                                         <div className="sm:col-span-4">
@@ -162,7 +162,7 @@ export default function Edit({ user }: any) {
                                     disabled={processing}
                                     className="w-36 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs"
                                 >
-                                    {processing ? 'Updating User...' : 'Update'}
+                                    {processing ? 'Updating...' : 'Update'}
                                 </Button>
                             </div>
                         </>

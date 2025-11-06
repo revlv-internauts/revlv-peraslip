@@ -51,25 +51,11 @@ export default function Create() {
 
                     }) => (
                         <>
-                            <div className="space-y-16">
+                            <div className="space-y-16 mt-4">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <h2 className="text-base/7 font-semibold text-gray-900">Employee Information</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Use a valid revlv email for creating an employee.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
-                                        <div className="sm:col-span-4">
-                                            <label htmlFor="employee_id" className="block text-sm/6 font-medium text-gray-900">
-                                                Employee ID
-                                            </label>
-                                            <div className="mt-2">
-                                                <input
-                                                    id="employee_id"
-                                                    name="employee_id"
-                                                    type="text"
-                                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
-                                                />
-                                            </div>
-                                            {errors.employee_id && <div className="text-red-500">{errors.employee_id}</div>}
-                                        </div>
 
                                         <div className="sm:col-span-4">
                                             <label htmlFor="first_name" className="block text-sm/6 font-medium text-gray-900">
@@ -117,6 +103,21 @@ export default function Create() {
                                         </div>
 
                                         <div className="sm:col-span-4">
+                                            <label htmlFor="employee_id" className="block text-sm/6 font-medium text-gray-900">
+                                                Employee ID
+                                            </label>
+                                            <div className="mt-2">
+                                                <input
+                                                    id="employee_id"
+                                                    name="employee_id"
+                                                    type="text"
+                                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
+                                                />
+                                            </div>
+                                            {errors.employee_id && <div className="text-red-500">{errors.employee_id}</div>}
+                                        </div>
+
+                                        <div className="sm:col-span-4">
                                             <label htmlFor="date_of_hiring" className="block text-sm/6 font-medium text-gray-900">
                                                 Date of Hiring
                                             </label>
@@ -146,7 +147,7 @@ export default function Create() {
                                             {errors.email && <div className="text-red-500">{errors.email}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="phone_number" className="block text-sm/6 font-medium text-gray-900">
                                                 Phone Number
                                             </label>
@@ -161,7 +162,7 @@ export default function Create() {
                                             {errors.phone_number && <div className="text-red-500">{errors.phone_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="department_id" className="block text-sm/6 font-medium text-gray-900">
                                                 Department ID
                                             </label>
@@ -176,7 +177,7 @@ export default function Create() {
                                             {errors.department_id && <div className="text-red-500">{errors.department_id}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="bank_number" className="block text-sm/6 font-medium text-gray-900">
                                                 Bank Number
                                             </label>
@@ -191,7 +192,7 @@ export default function Create() {
                                             {errors.bank_number && <div className="text-red-500">{errors.bank_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="basic_pay" className="block text-sm/6 font-medium text-gray-900">
                                                 Basic Salary
                                             </label>
@@ -204,10 +205,10 @@ export default function Create() {
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
                                                 />
                                             </div>
-                                            {errors.bank_number && <div className="text-red-500">{errors.bank_number}</div>}
+                                            {errors.bank_pay && <div className="text-red-500">{errors.bank_pay}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="sss_number" className="block text-sm/6 font-medium text-gray-900">
                                                 SSS Number
                                             </label>
@@ -222,7 +223,7 @@ export default function Create() {
                                             {errors.sss_number && <div className="text-red-500">{errors.sss_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="umid_number" className="block text-sm/6 font-medium text-gray-900">
                                                 UMID Number
                                             </label>
@@ -292,7 +293,7 @@ export default function Create() {
                                     disabled={processing}
                                     className="w-36 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs"
                                 >
-                                    {processing ? 'Creating User...' : 'Create'}
+                                    {processing ? 'Creating...' : 'Create'}
                                 </Button>
                             </div>
                         </>

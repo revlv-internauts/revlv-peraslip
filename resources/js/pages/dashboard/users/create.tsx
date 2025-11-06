@@ -51,7 +51,7 @@ export default function Create() {
 
                     }) => (
                         <>
-                            <div className="space-y-16">
+                            <div className="space-y-16 mt-4">
                                 <div className="border-b border-gray-900/10 pb-12">
                                     <h2 className="text-base/7 font-semibold text-gray-900">User Information</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Use a valid revlv email for creating a user.</p>
@@ -158,7 +158,7 @@ export default function Create() {
                                     disabled={processing}
                                     className="w-36 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs"
                                 >
-                                    {processing ? 'Creating User...' : 'Create'}
+                                    {processing ? 'Creating...' : 'Create'}
                                 </Button>
                             </div>
                         </>

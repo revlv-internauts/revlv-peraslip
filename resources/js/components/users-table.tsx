@@ -42,7 +42,7 @@ export function UsersTable({ users }: UserIndexProps) {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                        <TableHead>Name</TableHead>
+                        <TableHead>Full Name</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Created At</TableHead>
                         <TableHead>Updated At</TableHead>

@@ -9,7 +9,7 @@ export default function Index() {
     const { user } = useAuth()
     return (
         <Layout>
-        <Head title="Dashboard" />
+        <Head title="Departments" />
         <SidebarInset>            
             <header className="flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                 <div className="flex items-center gap-2 px-4">
@@ -21,14 +21,14 @@ export default function Index() {
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem className="text-base font-medium">
-                                <BreadcrumbPage>Dashboard</BreadcrumbPage>
+                                <BreadcrumbPage>Departments</BreadcrumbPage>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
             </header>
             <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-                <h1>Welcome {user?.first_name}, Dashboard!</h1>
+                <h1>Welcome {user?.first_name}, Departments!</h1>
                 {/* <UsersTable users={users}/> */}
             </div>
         </SidebarInset>

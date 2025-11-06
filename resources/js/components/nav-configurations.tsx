@@ -33,7 +33,7 @@ export function NavConfigurations({
 }) {
     return (
       <SidebarGroup>
-        <SidebarGroupLabel>Configurations</SidebarGroupLabel>
+        <SidebarGroupLabel>Submenu</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
             {items.map((item) => (

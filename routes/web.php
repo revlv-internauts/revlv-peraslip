@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PayrollController;
@@ -15,6 +16,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/users', UserController::class);
     Route::resource('/employees', EmployeeController::class);
     Route::resource('/payrolls', PayrollController::class);
+
+    Route::resource('/departments', DepartmentController::class);
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

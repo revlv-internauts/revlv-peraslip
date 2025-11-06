@@ -39,7 +39,7 @@ const data = {
   ],
   navConfigurations: [
     {
-      title: "Employees",
+      title: "Configurations",
       // url: "/employees",
       icon: SettingsIcon,
       items: [

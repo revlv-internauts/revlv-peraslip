@@ -11,7 +11,7 @@ export default function Edit({ employee }: any) {
         <Layout>
         <Head title="Employees - Edit" />
             <SidebarInset>
-                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+                <header className="flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <div className="flex items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />
                             <Separator
@@ -51,26 +51,11 @@ export default function Edit({ employee }: any) {
 
                     }) => (
                         <>
-                            <div className="space-y-12">
+                            <div className="space-y-12 mt-4">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <h2 className="text-base/7 font-semibold text-gray-900">Employee Information | Employee ID: {employee.employee_id}</h2>
+                                    <h2 className="text-base/7 font-semibold text-gray-900">Information for Employee ID: {employee.employee_id}</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Edit with safety precautions.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
-                                        <div className="sm:col-span-4">
-                                            <label htmlFor="employee_id" className="block text-sm/6 font-medium text-gray-900">
-                                                Employee ID
-                                            </label>
-                                            <div className="mt-2">
-                                                <input
-                                                    id="employee_id"
-                                                    name="employee_id"
-                                                    defaultValue={employee.employee_id}
-                                                    type="text"
-                                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
-                                                />
-                                            </div>
-                                            {errors.employee_id && <div className="text-red-500">{errors.employee_id}</div>}
-                                        </div>
 
                                         <div className="sm:col-span-4">
                                             <label htmlFor="first_name" className="block text-sm/6 font-medium text-gray-900">
@@ -119,6 +104,21 @@ export default function Edit({ employee }: any) {
                                             </div>
                                             {errors.middle_name && <div className="text-red-500">{errors.middle_name}</div>}
                                         </div>
+                                        <div className="sm:col-span-4">
+                                            <label htmlFor="employee_id" className="block text-sm/6 font-medium text-gray-900">
+                                                Employee ID
+                                            </label>
+                                            <div className="mt-2">
+                                                <input
+                                                    id="employee_id"
+                                                    name="employee_id"
+                                                    defaultValue={employee.employee_id}
+                                                    type="text"
+                                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
+                                                />
+                                            </div>
+                                            {errors.employee_id && <div className="text-red-500">{errors.employee_id}</div>}
+                                        </div>
 
                                         <div className="sm:col-span-4">
                                             <label htmlFor="date_of_hiring" className="block text-sm/6 font-medium text-gray-900">
@@ -152,7 +152,7 @@ export default function Edit({ employee }: any) {
                                             {errors.email && <div className="text-red-500">{errors.email}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="phone_number" className="block text-sm/6 font-medium text-gray-900">
                                                 Phone Number
                                             </label>
@@ -168,7 +168,7 @@ export default function Edit({ employee }: any) {
                                             {errors.phone_number && <div className="text-red-500">{errors.phone_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="department_id" className="block text-sm/6 font-medium text-gray-900">
                                                 Department ID
                                             </label>
@@ -184,7 +184,7 @@ export default function Edit({ employee }: any) {
                                             {errors.department_id && <div className="text-red-500">{errors.department_id}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="bank_number" className="block text-sm/6 font-medium text-gray-900">
                                                 Bank Number
                                             </label>
@@ -200,7 +200,7 @@ export default function Edit({ employee }: any) {
                                             {errors.bank_number && <div className="text-red-500">{errors.bank_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="basic_pay" className="block text-sm/6 font-medium text-gray-900">
                                                 Basic Salary
                                             </label>
@@ -214,10 +214,10 @@ export default function Edit({ employee }: any) {
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
                                                 />
                                             </div>
-                                            {errors.bank_number && <div className="text-red-500">{errors.bank_number}</div>}
+                                            {errors.basic_pay && <div className="text-red-500">{errors.basic_pay}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="sss_number" className="block text-sm/6 font-medium text-gray-900">
                                                 SSS Number
                                             </label>
@@ -233,7 +233,7 @@ export default function Edit({ employee }: any) {
                                             {errors.sss_number && <div className="text-red-500">{errors.sss_number}</div>}
                                         </div>
 
-                                        <div className="sm:col-span-4">
+                                        <div className="sm:col-span-2">
                                             <label htmlFor="umid_number" className="block text-sm/6 font-medium text-gray-900">
                                                 UMID Number
                                             </label>
@@ -307,7 +307,7 @@ export default function Edit({ employee }: any) {
                                     disabled={processing}
                                     className="w-36 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-xs"
                                 >
-                                    {processing ? 'Updating employee...' : 'Update'}
+                                    {processing ? 'Updating...' : 'Update'}
                                 </Button>
                             </div>
                         </>
