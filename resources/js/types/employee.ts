@@ -18,4 +18,9 @@ export interface Employee {
     tin_number: string;
     created_at: string;
     updated_at: string;
+
+    department: {
+        id: number,
+        name: string,
+    }
 }

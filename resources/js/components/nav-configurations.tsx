@@ -17,12 +17,12 @@ import {
   CollapsibleContent,
 } from "./ui/collapsible"
 
-export function NavEmployeeSettings({ 
+export function NavConfigurations({ 
   items, 
 }: {
   items: {
     title: string
-    url: string
+    // url: string
     icon: LucideIcon
     isActive?: boolean
     items?: {
@@ -33,7 +33,7 @@ export function NavEmployeeSettings({
 }) {
     return (
       <SidebarGroup>
-        <SidebarGroupLabel>Employee Settings</SidebarGroupLabel>
+        <SidebarGroupLabel>Configurations</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
             {items.map((item) => (

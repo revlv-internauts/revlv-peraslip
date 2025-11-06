@@ -16,15 +16,8 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('abbr')->unique();
             $table->timestamps();
         });
-
-        DB::table('departments')->insert([
-            ['name' => 'Software/IT Ops', 'abbr' => 'ITOps', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => 'Network Operations Center', 'abbr' => 'NOC', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['name' => 'Finance', 'abbr' => 'FIN', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-        ]);
     }
 
     /**

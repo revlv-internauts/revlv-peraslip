@@ -24,15 +24,15 @@ class EmployeeFactory extends Factory
             'middle_name' => fake()->lastName(),
             'date_of_hiring' => fake()->date('Y-m-d'),
             'email' => fake()->unique()->safeEmail(),
-            'phone_number' => fake()->unique()->numerify('09##-###-####'),
-            'department_id' => fake()->randomElement(Department::pluck('id')),
-            'bank_number' => fake()->unique()->numerify('###-###-###-####'),
+            'phone_number' => fake()->unique()->numerify('09#########'),
+            'department_id' => Department::factory(),
+            'bank_number' => fake()->unique()->numerify('#############'),
             'basic_pay' => fake()->randomNumber(3, 2),
-            'sss_number' => fake()->unique()->numerify('##-#######-#'),
-            'umid_number' => fake()->unique()->numerify('####-#######-#'),
-            'philhealth_number' => fake()->unique()->numerify('##-#########-#'),
-            'pagibig_number' => fake()->unique()->numerify('####-####-####'),
-            'tin_number' => fake()->unique()->numerify('###-###-###'),
+            'sss_number' => fake()->unique()->numerify('##########'),
+            'umid_number' => fake()->unique()->numerify('############'),
+            'philhealth_number' => fake()->unique()->numerify('############'),
+            'pagibig_number' => fake()->unique()->numerify('############'),
+            'tin_number' => fake()->unique()->numerify('#########'),
         ];
     }
 }

@@ -1,4 +1,4 @@
-import { Calendar, Inbox, Settings, LayoutDashboard, User, Banknote, Users } from "lucide-react"
+import { Calendar, Inbox, Settings, LayoutDashboard, User, Banknote, Users, SettingsIcon } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar"
 import { NavHome } from "./nav-home"
 import { NavMain } from "./nav-main"
-import { NavEmployeeSettings } from "./nav-employee-settings"
+import { NavConfigurations } from "./nav-configurations"
 import { NavUser } from "./nav-user"
 
 const data = {
@@ -37,15 +37,15 @@ const data = {
       icon: Users
     },
   ],
-  navEmployeeSettings: [
+  navConfigurations: [
     {
-      title: "Users",
-      url: "/users",
-      icon: Users,
+      title: "Employees",
+      // url: "/employees",
+      icon: SettingsIcon,
       items: [
         {
-          title: "View",
-          url: "/users",
+          title: "Departments",
+          url: "/departments",
         },
       ],
     },
@@ -60,7 +60,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavEmployeeSettings items={data.navEmployeeSettings}/>
+        <NavConfigurations items={data.navConfigurations}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser />

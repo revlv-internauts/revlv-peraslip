@@ -1,6 +1,6 @@
 import AppPagination from "@/components/app-pagination"
-import { Employee } from "@/types/employees"
-import { Link } from "@inertiajs/react"
+import { Employee } from "@/types/employee"
+import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,11 @@ type EmployeeIndexProps = {
 }
 
 export function EmployeesTable({ employees }: EmployeeIndexProps) {
+    const handleDelete = (id: string) => {
+        if(confirm("Are you sure you want to delete this employee?")) {
+            router.delete(`/users/${id}`)
+        }
+    }
     return (
         <>
             <div className="sm:flex sm:items-center mt-2">
@@ -62,17 +67,11 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                             <TableCell>
                                 <div className="flex gap-4">
                                     <Button
-                                        asChild
                                         className="bg-red-700 hover:bg-red-600"
+                                        onClick={() => handleDelete(employee.id)}
                                     >
-                                        <Link 
-                                            href={`/employees/${employee.id}`}
-                                            method="delete"
-                                            as="button"
-                                        >
-                                                <Trash />
-                                                Delete
-                                        </Link>
+                                        <Trash />
+                                        Delete
                                     </Button>
                                     <Button
                                         asChild

@@ -36,14 +36,14 @@ class Employee extends Model
         'tin_number',
     ];
 
-    public function payroll(): HasMany
+    public function payrolls(): HasMany
     {
-        return $this->hasMany(Payroll::class, 'employee_id');
+        return $this->hasMany(Payroll::class);
     }
 
     public function department(): BelongsTo
     {
-        return $this->belongsTo(Department::class, 'id');
+        return $this->belongsTo(Department::class);
     }
 
     // $employee = Employee::find($employeeId); // Find employee by ID

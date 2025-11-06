@@ -14,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::orderBy('updated_at', 'desc') 
+        $employees = Employee::orderBy('updated_at', 'desc')
+            ->with('department') 
             ->paginate(13);
 
         return Inertia::render('dashboard/employees/index', 

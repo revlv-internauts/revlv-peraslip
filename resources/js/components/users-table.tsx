@@ -1,6 +1,6 @@
 import AppPagination from "@/components/app-pagination"
-import { User } from "@/types/users"
-import { Link } from "@inertiajs/react"
+import { User } from "@/types/user"
+import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,11 @@ type UserIndexProps = {
 }
 
 export function UsersTable({ users }: UserIndexProps) {
+    const handleDelete = (id: number) => {
+        if(confirm("Are you sure you want to delete this user?")) {
+            router.delete(`/users/${id}`)
+        }
+    }
     return (
         <>
             <div className="sm:flex sm:items-center mt-2">
@@ -54,17 +59,11 @@ export function UsersTable({ users }: UserIndexProps) {
                             <TableCell>
                                 <div className="flex gap-4">
                                     <Button
-                                        asChild
                                         className="bg-red-700 hover:bg-red-600"
+                                        onClick={() => handleDelete(user.id)}
                                     >
-                                        <Link 
-                                            href={`/users/${user.id}`}
-                                            method="delete"
-                                            as="button"
-                                        >
-                                                <Trash />
-                                                Delete
-                                        </Link>
+                                        <Trash />
+                                        Delete
                                     </Button>
                                     <Button
                                         asChild

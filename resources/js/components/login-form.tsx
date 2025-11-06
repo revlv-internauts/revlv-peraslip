@@ -37,7 +37,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
           <AlertCircleIcon />
           <AlertTitle>Unable to login.</AlertTitle>
           <AlertDescription>
-            <p>Please verify your login credentials and try again.</p>
+            <p>Verify your credentials and try again.</p>
             <ul className="list-inside list-disc text-sm">
               {errorArray.map((err, index) => (
                 <li key={index}>{err}</li>
