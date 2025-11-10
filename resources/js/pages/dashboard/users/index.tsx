@@ -6,7 +6,7 @@ import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { UsersTable } from "@/components/users-table"
 
 export default function Index({ users }: any) {
-       return (
+    return (
         <Layout>
         <Head title="Users" />
             <SidebarInset>

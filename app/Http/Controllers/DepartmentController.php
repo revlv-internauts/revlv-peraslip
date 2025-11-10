@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DepartmentResource;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +14,12 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return Inertia::render('dashboard/departments/index');
+        $departments = Department::orderBy('updated_at', 'desc')
+            ->paginate(13);
+
+        return Inertia::render('dashboard/departments/index', 
+            ['departments' => DepartmentResource::collection($departments)]
+        );
     }
 
     /**

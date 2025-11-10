@@ -1,5 +1,5 @@
 import AppPagination from "@/components/app-pagination"
-import { User } from "@/types"
+import { type User } from "@/types"
 import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
@@ -42,22 +42,67 @@ export function UsersTable({ users }: UserIndexProps) {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                        <TableHead>Full Name</TableHead>
-                        <TableHead>Email</TableHead>
-                        <TableHead>Created At</TableHead>
-                        <TableHead>Updated At</TableHead>
-                        <TableHead>Actions</TableHead>
+                        <TableHead 
+                            scope="col"
+                            className="py-3.5 pr-3 pl-4 text-left text-sm font-bold text-gray-900 sm:pl-6"    
+                        >
+                            Name
+                        </TableHead>
+                        <TableHead
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
+                        >
+                            Email
+                        </TableHead>
+                        <TableHead
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
+                        >
+                            Created At
+                        </TableHead>
+                        <TableHead
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
+                        >
+                            Updated At
+                        </TableHead>
+                        <TableHead
+                            scope="col"
+                            className="py-3.5 pr-4 pl-3 text-right text-sm font-bold text-gray-900 sm:pr-6"    
+                        >
+                            Actions
+                        </TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {users.data.map((user) => (
                         <TableRow key={user.id}>
-                            <TableCell><Link href={`/users/${user.id}`}>{user.full_name}</Link></TableCell>
-                            <TableCell>{user.email}</TableCell>
-                            <TableCell>{dateFormatter(user.created_at)}</TableCell>
-                            <TableCell>{dateFormatter(user.updated_at)}</TableCell>
-                            <TableCell>
-                                <div className="flex gap-4">
+                            <TableCell
+                                className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
+                            >
+                                <Link href={`/users/${user.id}`}>
+                                    {user.full_name}
+                                </Link>
+                            </TableCell>
+                            <TableCell
+                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                            >
+                                {user.email}
+                            </TableCell>
+                            <TableCell
+                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                            >
+                                {dateFormatter(user.created_at)}
+                            </TableCell>
+                            <TableCell
+                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                            >
+                                {dateFormatter(user.updated_at)}
+                            </TableCell>
+                            <TableCell
+                                className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
+                            >
+                                <div className="flex justify-end space-x-2">
                                     <Button
                                         className="bg-red-700 hover:bg-red-600"
                                         onClick={() => handleDelete(user.id)}

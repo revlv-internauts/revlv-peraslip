@@ -1,12 +1,11 @@
 import Layout from "@/components/layout";
-import useAuth from "@/hooks/useAuth";
 import { Head } from "@inertiajs/react";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
+import { DepartmentsTable } from "@/components/departments-table";
 
-export default function Index() {
-    const { user } = useAuth()
+export default function Index({ departments }: any) {
     return (
         <Layout>
         <Head title="Departments" />
@@ -28,8 +27,7 @@ export default function Index() {
                 </div>
             </header>
             <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-                <h1>Welcome {user?.first_name}, Departments!</h1>
-                {/* <UsersTable users={users}/> */}
+                <DepartmentsTable departments={departments}/>
             </div>
         </SidebarInset>
         </Layout>

@@ -1,5 +1,5 @@
 import AppPagination from "@/components/app-pagination"
-import { type Employee } from "@/types"
+import { type Department } from "@/types"
 import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
@@ -7,33 +7,33 @@ import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { dateFormatter } from "@/lib/dateFormatter"
 
-type EmployeeIndexProps = {
-    employees: {
-        data: Array<Employee>;
+type DepartmentIndexProps = {
+    departments: {
+        data: Array<Department>;
         meta: Meta;
     }
 }
 
-export function EmployeesTable({ employees }: EmployeeIndexProps) {
-    const handleDelete = (id: string) => {
-        if(confirm("Are you sure you want to delete this employee?")) {
-            router.delete(`/employees/${id}`)
+export function DepartmentsTable({ departments }: DepartmentIndexProps) {
+    const handleDelete = (id: number) => {
+        if(confirm("Are you sure you want to delete this department?")) {
+            router.delete(`/departments/${id}`)
         }
     }
     return (
         <>
             <div className="sm:flex sm:items-center mt-2">
                 <div className="sm:flex-auto">
-                    <h1 className="text-base font-semibold text-gray-900">Employees</h1>
+                    <h1 className="text-base font-semibold text-gray-900">Departments</h1>
                     <p className="mt-2 text-sm text-gray-700">
-                        A list of all the employees including their name, email, contact, government-mandated social benefit programs, and timestamps.
+                        A list of all the departments including their name and timestamps.
                     </p>
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                    <Link href="/employees/create">
+                    <Link href="/departments/create">
                         <Button>
                             <Plus />
-                            Add Employee
+                            Add Department
                         </Button>
                     </Link>
                 </div>
@@ -46,37 +46,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                             scope="col"
                             className="py-3.5 pr-3 pl-4 text-left text-sm font-bold text-gray-900 sm:pl-6"    
                         >
-                            Employee ID
-                        </TableHead>
-                        <TableHead
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
-                        >
                             Name
-                        </TableHead>
-                        <TableHead
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
-                        >
-                            Email
-                        </TableHead>
-                        <TableHead
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
-                        >
-                            Date of Hiring
-                        </TableHead>
-                        <TableHead
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
-                        >
-                            Bank Number
-                        </TableHead>
-                        <TableHead
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
-                        >
-                            Department ID
                         </TableHead>
                         <TableHead
                             scope="col"
@@ -92,56 +62,31 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                         </TableHead>
                         <TableHead
                             scope="col"
-                            className="py-3.5 pr-4 pl-3 text-right text-sm font-bold text-gray-900 sm:pr-6"   
+                            className="py-3.5 pr-4 pl-3 text-right text-sm font-bold text-gray-900 sm:pr-6"    
                         >
                             Actions
                         </TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {employees.data.map((employee) => (
-                        <TableRow key={employee.id}>
+                        {departments.data.map((department) => (
+                        <TableRow key={department.id}>
                             <TableCell
                                 className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
                             >
-                                {employee.employee_id}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                <Link href={`/employees/${employee.id}`}>
-                                    {employee.full_name}
+                                <Link href={`/departments/${department.id}`}>
+                                    {department.name}
                                 </Link>
                             </TableCell>
                             <TableCell
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
                             >
-                                {employee.email}
+                                {dateFormatter(department.created_at)}
                             </TableCell>
                             <TableCell
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
                             >
-                                {employee.date_of_hiring}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.bank_number}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.department_id}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(employee.created_at)}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(employee.updated_at)}
+                                {dateFormatter(department.updated_at)}
                             </TableCell>
                             <TableCell
                                 className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
@@ -149,7 +94,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                                 <div className="flex justify-end space-x-2">
                                     <Button
                                         className="bg-red-700 hover:bg-red-600"
-                                        onClick={() => handleDelete(employee.id)}
+                                        onClick={() => handleDelete(department.id)}
                                     >
                                         <Trash />
                                         Delete
@@ -159,7 +104,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                                         className="bg-green-700 hover:bg-green-600"
                                     >
                                         <Link 
-                                            href={`/employees/${employee.id}/edit`}
+                                            href={`/departments/${department.id}/edit`}
                                             as="button" 
                                         >
                                                 <SquarePen />
@@ -173,7 +118,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                     </TableBody>
                 </Table>
             </div>
-            <AppPagination data={employees.meta} />
+            <AppPagination data={departments.meta} />
         </>
     )
 }

@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
-import { MainNavItems } from "@/types"
+import { type MainNavItems } from "@/types"
 
 export function NavMain({ 
   items = [], 
@@ -21,7 +21,7 @@ export function NavMain({
             <SidebarMenu>
               {items.map((item: any) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton tooltip={item.title} asChild>
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
