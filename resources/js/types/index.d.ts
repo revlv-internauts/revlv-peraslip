@@ -1,3 +1,5 @@
+import { LucideIcon } from "@node_modules/lucide-react/dist/lucide-react";
+
 export interface Auth {
     user: User;
 }
@@ -7,6 +9,26 @@ export interface SharedData {
     quote: { message: string; author: string };
     auth: Auth;
     [key: string]: unknown;
+}
+
+export interface MainNavItems {
+    title: string;
+    url: string;
+    icon?: LucideIcon | null;
+}
+
+export interface ConfigNavItems {
+    title: string;
+    icon?: LucideIcon | null;
+    isActive?: boolean;
+    subItems?: SubItems<Array>;
+}
+
+export interface SubItems {
+    title: string;
+    url: string;
+    icon?: LucideIcon | null;
+    isActive?: boolean;
 }
 
 export interface User {
@@ -21,4 +43,31 @@ export interface User {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
+}
+
+export interface Employee {
+    id: string;
+    employee_id: string;
+    first_name: string;
+    last_name: string;
+    middle_name: string;
+    full_name: string;
+    email: string;
+    date_of_hiring: string;
+    phone_number: string;
+    bank_number: string;
+    department_id: number;
+    basic_pay: number;
+    sss_number: string;
+    umid_number: string;
+    philhealth_number: string;
+    pagibig_number: string;
+    tin_number: string;
+    created_at: string;
+    updated_at: string;
+
+    department: {
+        id: number,
+        name: string,
+    }
 }

@@ -1,5 +1,5 @@
 import AppPagination from "@/components/app-pagination"
-import { Employee } from "@/types/employee"
+import { Employee } from "@/types"
 import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
@@ -15,7 +15,7 @@ type EmployeeIndexProps = {
 }
 
 export function EmployeesTable({ employees }: EmployeeIndexProps) {
-    const handleDelete = (id: number) => {
+    const handleDelete = (id: string) => {
         if(confirm("Are you sure you want to delete this employee?")) {
             router.delete(`/employees/${id}`)
         }

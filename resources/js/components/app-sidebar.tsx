@@ -12,6 +12,21 @@ import { NavHome } from "./nav-home"
 import { NavMain } from "./nav-main"
 import { NavConfigurations } from "./nav-configurations"
 import { NavUser } from "./nav-user"
+import { ConfigNavItems } from "@/types"
+
+const configNavItems: ConfigNavItems[] = [
+  {
+    title: 'Configurations',
+    // url: '/departments',
+    icon: SettingsIcon,
+    subItems: [
+      {
+        title: 'Departments',
+        url: '/departments',
+      },
+    ]
+  }
+]
 
 const data = {
   // Menu Items
@@ -37,6 +52,9 @@ const data = {
       icon: Users
     },
   ],
+}
+
+const data2 = {
   navConfigurations: [
     {
       title: "Configurations",
@@ -60,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavConfigurations items={data.navConfigurations}/>
+        <NavConfigurations items={configNavItems}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser />

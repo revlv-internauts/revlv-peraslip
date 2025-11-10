@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/react"
-import { LucideIcon } from "lucide-react"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -8,22 +7,19 @@ import {
   SidebarMenuButton,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
+import { MainNavItems } from "@/types"
 
 export function NavMain({ 
-  items, 
+  items = [], 
 }: {
-  items: {
-    title: string
-    url: string
-    icon: LucideIcon
-  }[]
+  items: MainNavItems[]
 }) {
     return (
       <SidebarGroup>
         <SidebarGroupLabel>Menu</SidebarGroupLabel>
         <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {items.map((item: any) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>

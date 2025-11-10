@@ -1,5 +1,5 @@
-import { Link } from "@inertiajs/react"
-import { ChevronRight, LucideIcon } from "lucide-react"
+import { Link, usePage } from "@inertiajs/react"
+import { ChevronRight } from "lucide-react"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,21 +16,14 @@ import {
   CollapsibleTrigger,
   CollapsibleContent,
 } from "./ui/collapsible"
+import { type ConfigNavItems } from "@/types"
 
 export function NavConfigurations({ 
-  items, 
+  items = [], 
 }: {
-  items: {
-    title: string
-    // url: string
-    icon: LucideIcon
-    isActive?: boolean
-    items?: {
-      title: string
-      url: string
-    }[]
-  }[]
+  items: ConfigNavItems[] 
 }) {
+    const page = usePage()
     return (
       <SidebarGroup>
         <SidebarGroupLabel>Submenu</SidebarGroupLabel>
@@ -40,7 +33,7 @@ export function NavConfigurations({
               <Collapsible
                 key={item.title}
                 asChild
-                defaultOpen={item.isActive}
+                defaultOpen={item.subItems?.some((subItem: any) => subItem.url == page.url)}
                 className="group/collapsible"
               >
                 <SidebarMenuItem>
@@ -53,9 +46,9 @@ export function NavConfigurations({
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {item.items?.map((subItem) => (
+                      {item.subItems.map((subItem: any) => (
                         <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
+                          <SidebarMenuSubButton asChild isActive={false}>
                             <Link href={subItem.url}>
                               <span>{subItem.title}</span>
                             </Link>

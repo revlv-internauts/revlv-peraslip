@@ -1,5 +1,5 @@
 import AppPagination from "@/components/app-pagination"
-import { User } from "@/types/user"
+import { User } from "@/types"
 import { Link, router } from "@inertiajs/react"
 import { Meta } from "@/types/pagination"
 import { Plus, Trash, SquarePen } from "lucide-react"
