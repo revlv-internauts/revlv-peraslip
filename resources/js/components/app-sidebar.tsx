@@ -4,20 +4,39 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton
 } from "@/components/ui/sidebar"
 import { NavHome } from "./nav-home"
 import { NavMain } from "./nav-main"
 import { NavConfigurations } from "./nav-configurations"
 import { NavUser } from "./nav-user"
-import { ConfigNavItems } from "@/types"
+import { ConfigNavItems, MainNavItems } from "@/types"
+
+const mainNavItems: MainNavItems[] = [
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: LayoutDashboard
+  },
+  {
+    title: "Employees",
+    url: "/employees",
+    icon: User
+  },
+  {
+    title: "Payrolls",
+    url: "/payrolls",
+    icon: Banknote
+  },
+  {
+    title: "Users",
+    url: "/users",
+    icon: Users
+  },
+]
 
 const configNavItems: ConfigNavItems[] = [
   {
     title: 'Configurations',
-    // url: '/departments',
     icon: SettingsIcon,
     subItems: [
       {
@@ -25,50 +44,8 @@ const configNavItems: ConfigNavItems[] = [
         url: '/departments',
       },
     ]
-  }
+  },
 ]
-
-const data = {
-  // Menu Items
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: LayoutDashboard
-    },
-    {
-      title: "Employees",
-      url: "/employees",
-      icon: User
-    },
-    {
-      title: "Payrolls",
-      url: "/payrolls",
-      icon: Banknote
-    },
-    {
-      title: "Users",
-      url: "/users",
-      icon: Users
-    },
-  ],
-}
-
-const data2 = {
-  navConfigurations: [
-    {
-      title: "Configurations",
-      // url: "/employees",
-      icon: SettingsIcon,
-      items: [
-        {
-          title: "Departments",
-          url: "/departments",
-        },
-      ],
-    },
-  ]
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -77,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavHome />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={mainNavItems} />
         <NavConfigurations items={configNavItems}/>
       </SidebarContent>
       <SidebarFooter>
