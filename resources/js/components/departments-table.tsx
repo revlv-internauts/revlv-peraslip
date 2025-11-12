@@ -22,7 +22,7 @@ export function DepartmentsTable({ departments }: DepartmentIndexProps) {
     }
     return (
         <>
-            <div className="sm:flex sm:items-center mt-2">
+            <div className="sm:flex sm:items-center mt-4">
                 <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold text-gray-900">Departments</h1>
                     <p className="mt-2 text-sm text-gray-700">

@@ -6,6 +6,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Resources\EmployeeResource;
+use App\Models\Department;
 use Inertia\Inertia;
 
 class EmployeeController extends Controller
@@ -29,7 +30,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return Inertia::render('dashboard/employees/create');
+        $departments = Department::get();
+
+        return Inertia::render('dashboard/employees/create', [
+            'departments' => $departments,
+        ]);
     }
 
     /**
@@ -59,8 +64,11 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
+        $departments = Department::get();
+
         return Inertia::render('dashboard/employees/edit', [
             'employee' => $employee,
+            'departments' => $departments,
         ]);
     }
 

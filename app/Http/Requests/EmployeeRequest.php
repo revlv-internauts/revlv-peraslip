@@ -57,7 +57,7 @@ class EmployeeRequest extends FormRequest
             ],
             'department_id' => [
                 'required',
-                'integer',
+                'exists:departments,id',
             ],
             'bank_number' => [
                 'required',

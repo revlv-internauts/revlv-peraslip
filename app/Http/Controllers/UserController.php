@@ -18,8 +18,6 @@ class UserController extends Controller
     {
         $users = User::orderBy('updated_at', 'desc')
             ->paginate(13);
-        // $users = User::orderBy('id', 'asc')
-        //     ->get();
 
         return Inertia::render('dashboard/users/index', [
             'users' => UserResource::collection($users)

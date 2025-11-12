@@ -1,4 +1,4 @@
-import { Form } from '@inertiajs/react'
+import { Form, useForm, usePage } from '@inertiajs/react'
 import Layout from '@/components/layout'
 import { Head, Link } from '@inertiajs/react'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Create() {
+export default function EmployeesCreate({ departments }: any) {
     return (
         <Layout>
         <Head title="Employees - Create" />
@@ -164,15 +164,25 @@ export default function Create() {
 
                                         <div className="sm:col-span-2">
                                             <label htmlFor="department_id" className="block text-sm/6 font-medium text-gray-900">
-                                                Department ID
+                                                Department
                                             </label>
                                             <div className="mt-2">
-                                                <input
+                                                <select 
                                                     id="department_id"
                                                     name="department_id"
-                                                    type="number"
-                                                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
-                                                />
+                                                    defaultValue=""
+                                                    className="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
+                                                >
+                                                    <option value="" disabled>Select Department</option>
+                                                    {departments.map((department: any) => (
+                                                        <option 
+                                                            key={department.id} 
+                                                            value={department.id}
+                                                        >
+                                                            {department.name}
+                                                        </option>
+                                                    ))}
+                                                </select> 
                                             </div>
                                             {errors.department_id && <div className="text-red-500">{errors.department_id}</div>}
                                         </div>

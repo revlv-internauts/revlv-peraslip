@@ -5,7 +5,7 @@ import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
 import { DepartmentsTable } from "@/components/departments-table";
 
-export default function Index({ departments }: any) {
+export default function DepartmentsIndex({ departments }: any) {
     return (
         <Layout>
         <Head title="Departments" />

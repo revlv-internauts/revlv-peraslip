@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Create() {
+export default function UsersCreate() {
     return (
         <Layout>
         <Head title="Users - Create" />
@@ -56,6 +56,7 @@ export default function Create() {
                                     <h2 className="text-base/7 font-semibold text-gray-900">User Information</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Use a valid revlv email for creating a user.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
+
                                         <div className="sm:col-span-4">
                                             <label htmlFor="first_name" className="block text-sm/6 font-medium text-gray-900">
                                                 First Name

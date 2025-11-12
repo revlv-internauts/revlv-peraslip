@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { EmployeesTable } from "@/components/employees-table";
 
-export default function Index({ employees }: any) {
+export default function EmployeesIndex({ employees }: any) {
     return (
         <Layout>
         <Head title="Employees" />

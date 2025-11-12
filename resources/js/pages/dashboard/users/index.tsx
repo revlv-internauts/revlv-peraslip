@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { UsersTable } from "@/components/users-table"
 
-export default function Index({ users }: any) {
+export default function UsersIndex({ users }: any) {
     return (
         <Layout>
         <Head title="Users" />

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Edit({ user }: any) {
+export default function UsersEdit({ user }: any) {
     return (
         <Layout>
         <Head title="Users - Edit" />
