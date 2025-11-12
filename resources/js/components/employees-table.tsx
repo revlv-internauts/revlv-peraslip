@@ -76,7 +76,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                             scope="col"
                             className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
                         >
-                            Department ID
+                            Department Name
                         </TableHead>
                         <TableHead
                             scope="col"
@@ -131,7 +131,7 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                             <TableCell
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
                             >
-                                {employee.department_id}
+                                {employee.department?.name}
                             </TableCell>
                             <TableCell
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"

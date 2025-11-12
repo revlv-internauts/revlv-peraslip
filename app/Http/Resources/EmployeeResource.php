@@ -34,6 +34,7 @@ class EmployeeResource extends JsonResource
             'tin_number' => $this->tin_number,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'department' => new DepartmentResource($this->whenLoaded('department')),
         ];
     }
 }

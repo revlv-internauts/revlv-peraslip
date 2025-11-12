@@ -45,6 +45,13 @@ export interface User {
     [key: string]: unknown; // This allows for additional properties...
 }
 
+export interface Department {
+    id: number;
+    name: string;
+    created_at: string;
+    updated_at: string;
+}
+
 export interface Employee {
     id: string;
     employee_id: string;
@@ -65,16 +72,6 @@ export interface Employee {
     tin_number: string;
     created_at: string;
     updated_at: string;
-
-    department: {
-        id: number,
-        name: string,
-    }
-}
-
-export interface Department {
-    id: number;
-    name: string;
-    created_at: string;
-    updated_at: string;
+    
+    department?: Department; 
 }

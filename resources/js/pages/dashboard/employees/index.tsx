@@ -27,7 +27,9 @@ export default function Index({ employees }: any) {
                     </div>
                 </header>
                 <div className="flex flex-1 flex-col gap-4 p-4 pt-0 mt-2">
-                    <EmployeesTable employees={employees}/> 
+                    <EmployeesTable 
+                        employees={employees}
+                    /> 
                 </div>
             </SidebarInset>
         </Layout>
