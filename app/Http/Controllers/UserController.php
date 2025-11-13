@@ -37,8 +37,6 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $request->validated();
-
         // User::create([
         //     'role' => 'user',
         //     'name' => $request->name,
@@ -48,7 +46,7 @@ class UserController extends Controller
         // ]);
         // $request->offsetSet('role', 'user'); // sets the default role when not specified
 
-        User::create($request->all());
+        User::create($request->validated());
 
         return to_route('users.index');
     }
@@ -78,9 +76,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        $request->validated();
-
-        $user->update($request->all());
+        $user->update($request->validated());
 
         return to_route('users.index');
     }

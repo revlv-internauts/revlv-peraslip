@@ -42,9 +42,7 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-        $request->validated();
-
-        Employee::create($request->all());
+        Employee::create($request->validated());
 
         return to_route('employees.index');
     }
@@ -77,9 +75,7 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeRequest $request, Employee $employee)
     {
-        $request->validated();
-
-        $employee->update($request->all());
+        $employee->update($request->validated());
 
         return to_route('employees.index');
     }

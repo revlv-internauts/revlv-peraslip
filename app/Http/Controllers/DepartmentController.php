@@ -36,18 +36,7 @@ class DepartmentController extends Controller
      */
     public function store(DepartmentRequest $request)
     {
-        $request->validated();
-
-        // User::create([
-        //     'role' => 'user',
-        //     'name' => $request->name,
-        //     'title' => $request->title,
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        // ]);
-        // $request->offsetSet('role', 'user'); // sets the default role when not specified
-
-        Department::create($request->all());
+        Department::create($request->validated());
 
         return to_route('departments.index');
     }
@@ -75,9 +64,7 @@ class DepartmentController extends Controller
      */
     public function update(DepartmentRequest $request, Department $department)
     {
-        $request->validated();
-
-        $department->update($request->all());
+        $department->update($request->validated());
 
         return to_route('departments.index');
     }

@@ -27,14 +27,14 @@ const mainNavItems: MainNavItems[] = [
     icon: LayoutDashboard,
   },
   {
-    title: "Employees",
-    url: "/employees",
-    icon: User,
-  },
-  {
     title: "Payrolls",
     url: "/payrolls",
     icon: Banknote,
+  },
+  {
+    title: "Employees",
+    url: "/employees",
+    icon: User,
   },
   {
     title: "Users",
