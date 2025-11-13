@@ -1,16 +1,16 @@
 import { usePage } from "@inertiajs/react"
 import { Auth, User } from "@/types"
 
-interface pageProps {
+type AuthProps = {
     auth: {
-        user: User | null
+        user: User
     }
 }
 
 export default function useAuth() {
-    const { auth } = usePage<pageProps>().props;
+    const { auth } = usePage<AuthProps>().props
     return {
-        user: auth.user,
+        user: auth.user
         // userType: auth.user?.type ?? "",
     }
 }

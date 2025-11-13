@@ -4,8 +4,17 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage } from "@/co
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { UsersTable } from "@/components/users-table"
+import { User } from "@/types"
+import { Meta } from "@/types/pagination"
 
-export default function UsersIndex({ users }: any) {
+type UserIndexProps = {
+    users: {
+        data: Array<User>
+        meta: Meta
+    }
+}
+
+export default function UsersIndex({ users }: UserIndexProps) {
     return (
         <Layout>
         <Head title="Users" />

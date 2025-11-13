@@ -1,14 +1,17 @@
 import { Link } from '@inertiajs/react'
-import { Meta } from '@/types/pagination'
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { 
+    ChevronLeft,
+    ChevronRight,
+} from 'lucide-react'
+import { type Meta } from '@/types/pagination'
 
 type PaginationProps = {
     data: Meta;
 }
 
 export default function AppPagination({ data }: PaginationProps) {
-    const prevLink = data.links.find(link => link.label === '&laquo; Previous');
-    const nextLink = data.links.find(link => link.label === 'Next &raquo;');
+    const prevLink = data.links.find(link => link.label === '&laquo; Previous')
+    const nextLink = data.links.find(link => link.label === 'Next &raquo;')
     return (
         <nav className="flex justify-center">
             <div className="flex items-center space-x-2">

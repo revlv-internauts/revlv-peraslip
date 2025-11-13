@@ -1,36 +1,45 @@
-import { Calendar, Inbox, Settings, LayoutDashboard, User, Banknote, Users, SettingsIcon } from "lucide-react"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
+import { 
+  Calendar, 
+  Inbox, 
+  Settings, 
+  LayoutDashboard, 
+  User, 
+  Banknote, 
+  Users, 
+  SettingsIcon 
+} from "lucide-react"
+import { 
+  Sidebar, 
+  SidebarContent, 
+  SidebarFooter, 
   SidebarHeader,
 } from "@/components/ui/sidebar"
 import { NavHome } from "./nav-home"
 import { NavMain } from "./nav-main"
 import { NavConfigurations } from "./nav-configurations"
 import { NavUser } from "./nav-user"
-import { ConfigNavItems, MainNavItems } from "@/types"
+import { type ConfigNavItems, type MainNavItems } from "@/types"
 
 const mainNavItems: MainNavItems[] = [
   {
     title: "Dashboard",
     url: "/dashboard",
-    icon: LayoutDashboard
+    icon: LayoutDashboard,
   },
   {
     title: "Employees",
     url: "/employees",
-    icon: User
+    icon: User,
   },
   {
     title: "Payrolls",
     url: "/payrolls",
-    icon: Banknote
+    icon: Banknote,
   },
   {
     title: "Users",
     url: "/users",
-    icon: Users
+    icon: Users,
   },
 ]
 
@@ -43,7 +52,7 @@ const configNavItems: ConfigNavItems[] = [
         title: 'Departments',
         url: '/departments',
       },
-    ]
+    ],
   },
 ]
 

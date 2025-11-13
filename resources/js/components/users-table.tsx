@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { dateFormatter } from "@/lib/dateFormatter"
 
-type UserIndexProps = {
+type UsersTableProps = {
     users: {
-        data: Array<User>;
-        meta: Meta;
+        data: Array<User>
+        meta: Meta
     }
 }
 
-export function UsersTable({ users }: UserIndexProps) {
+export function UsersTable({ users }: UsersTableProps) {
     const handleDelete = (id: number) => {
         if(confirm("Are you sure you want to delete this user?")) {
             router.delete(`/users/${id}`)

@@ -1,20 +1,33 @@
 import AppPagination from "@/components/app-pagination"
-import { type Employee } from "@/types"
 import { Link, router } from "@inertiajs/react"
-import { Meta } from "@/types/pagination"
-import { Plus, Trash, SquarePen } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { 
+    Plus, 
+    Trash, 
+    SquarePen,
+} from "lucide-react"
+import { 
+    Button,
+} from "@/components/ui/button"
+import { 
+    Table, 
+    TableBody, 
+    TableCell, 
+    TableHead, 
+    TableHeader, 
+    TableRow, 
+} from "@/components/ui/table"
+import { type Employee } from "@/types"
+import { type Meta } from "@/types/pagination"
 import { dateFormatter } from "@/lib/dateFormatter"
 
-type EmployeeIndexProps = {
+type EmployeeTableProps = {
     employees: {
-        data: Array<Employee>;
-        meta: Meta;
+        data: Array<Employee>
+        meta: Meta
     }
 }
 
-export function EmployeesTable({ employees }: EmployeeIndexProps) {
+export function EmployeesTable({ employees }: EmployeeTableProps) {
     const handleDelete = (id: string) => {
         if(confirm("Are you sure you want to delete this employee?")) {
             router.delete(`/employees/${id}`)
@@ -65,6 +78,12 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                             className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
                         >
                             Date of Hiring
+                        </TableHead>
+                        <TableHead
+                            scope="col"
+                            className="px-3 py-3.5 text-left text-sm font-bold text-gray-900"
+                        >
+                            Phone Number
                         </TableHead>
                         <TableHead
                             scope="col"
@@ -122,6 +141,11 @@ export function EmployeesTable({ employees }: EmployeeIndexProps) {
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
                             >
                                 {employee.date_of_hiring}
+                            </TableCell>
+                            <TableCell
+                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                            >
+                                {employee.phone_number}
                             </TableCell>
                             <TableCell
                                 className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"

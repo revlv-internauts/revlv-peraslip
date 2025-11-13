@@ -1,9 +1,11 @@
 import { Link } from "@inertiajs/react"
-import { Target } from "lucide-react"
+import { 
+  Target, 
+} from "lucide-react"
 import {
-    SidebarMenu,
-    SidebarMenuItem,
-    SidebarMenuButton,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar"
 
 export function NavHome() {

@@ -1,5 +1,12 @@
 import { Link, usePage } from "@inertiajs/react"
-import { ChevronRight } from "lucide-react"
+import { 
+  ChevronRight,
+} from "lucide-react"
+import { 
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "./ui/collapsible"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -11,18 +18,9 @@ import {
   SidebarMenuSubItem,
   SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
-import { 
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from "./ui/collapsible"
 import { type ConfigNavItems } from "@/types"
 
-export function NavConfigurations({ 
-  items = [], 
-}: {
-  items: ConfigNavItems[] 
-}) {
+export function NavConfigurations({ items = [] }: { items: ConfigNavItems[] }) {
     const page = usePage()
     return (
       <SidebarGroup>

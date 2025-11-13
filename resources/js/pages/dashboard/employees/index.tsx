@@ -4,8 +4,17 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage } from "@/co
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { EmployeesTable } from "@/components/employees-table";
+import { Employee } from "@/types"
+import { Meta } from "@/types/pagination"
 
-export default function EmployeesIndex({ employees }: any) {
+type EmployeeIndexProps = {
+    employees: {
+        data: Array<Employee>
+        meta: Meta
+    }
+}
+
+export default function EmployeesIndex({ employees }: EmployeeIndexProps) {
     return (
         <Layout>
         <Head title="Employees" />

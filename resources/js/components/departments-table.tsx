@@ -1,20 +1,33 @@
 import AppPagination from "@/components/app-pagination"
-import { type Department } from "@/types"
 import { Link, router } from "@inertiajs/react"
-import { Meta } from "@/types/pagination"
-import { Plus, Trash, SquarePen } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { 
+    Plus, 
+    Trash, 
+    SquarePen, 
+} from "lucide-react"
+import { 
+    Button,
+} from "@/components/ui/button"
+import { 
+    Table,
+    TableBody,
+    TableCell, 
+    TableHead, 
+    TableHeader, 
+    TableRow,
+} from "@/components/ui/table"
+import { type Department } from "@/types"
+import { type Meta } from "@/types/pagination"
 import { dateFormatter } from "@/lib/dateFormatter"
 
-type DepartmentIndexProps = {
+type DepartmentTableProps = {
     departments: {
-        data: Array<Department>;
-        meta: Meta;
+        data: Array<Department>
+        meta: Meta
     }
 }
 
-export function DepartmentsTable({ departments }: DepartmentIndexProps) {
+export function DepartmentsTable({ departments }: DepartmentTableProps) {
     const handleDelete = (id: number) => {
         if(confirm("Are you sure you want to delete this department?")) {
             router.delete(`/departments/${id}`)
@@ -22,7 +35,7 @@ export function DepartmentsTable({ departments }: DepartmentIndexProps) {
     }
     return (
         <>
-            <div className="sm:flex sm:items-center mt-4">
+            <div className="sm:flex sm:items-center mt-2">
                 <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold text-gray-900">Departments</h1>
                     <p className="mt-2 text-sm text-gray-700">

@@ -5,8 +5,14 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
+import { Department, Employee } from '@/types'
 
-export default function EmployeesEdit({ employee, departments }: any) {
+type EmployeeEditProps = {
+    employee: Employee
+    departments: Array<Department>
+}
+
+export default function EmployeesEdit({ employee, departments }: EmployeeEditProps) {
     return (
         <Layout>
         <Head title="Employees - Edit" />

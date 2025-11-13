@@ -5,8 +5,13 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
+import { User } from '@/types'
 
-export default function UsersEdit({ user }: any) {
+type UserEditProps = {
+    user: User
+}
+
+export default function UsersEdit({ user }: UserEditProps) {
     return (
         <Layout>
         <Head title="Users - Edit" />

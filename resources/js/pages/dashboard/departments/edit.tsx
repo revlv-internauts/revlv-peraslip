@@ -5,8 +5,13 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
+import { Department } from '@/types'
 
-export default function DepartmentsEdit({ department }: any) {
+type DepartmentEditProps = {
+    department: Department
+}
+
+export default function DepartmentsEdit({ department }: DepartmentEditProps) {
     return (
         <Layout>
         <Head title="Departments - Edit" />

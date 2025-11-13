@@ -4,8 +4,17 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage } from "@/co
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
 import { DepartmentsTable } from "@/components/departments-table";
+import { Department } from "@/types";
+import { Meta } from "@/types/pagination";
 
-export default function DepartmentsIndex({ departments }: any) {
+type DepartmentIndexProps = {
+    departments: {
+        data: Array<Department>
+        meta: Meta
+    }
+}
+
+export default function DepartmentsIndex({ departments }: DepartmentIndexProps) {
     return (
         <Layout>
         <Head title="Departments" />
@@ -26,7 +35,7 @@ export default function DepartmentsIndex({ departments }: any) {
                     </Breadcrumb>
                 </div>
             </header>
-            <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+            <div className="flex flex-1 flex-col gap-4 p-4 pt-0 mt-2">
                 <DepartmentsTable departments={departments}/>
             </div>
         </SidebarInset>

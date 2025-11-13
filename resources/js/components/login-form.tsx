@@ -1,24 +1,34 @@
 import { useForm } from "@inertiajs/react"
 import { cn } from "@/lib/utils"
-import { AlertCircleIcon, Mail } from "lucide-react"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { 
+  AlertCircleIcon, 
+  Mail,
+} from "lucide-react"
+import { 
+  Alert,
+  AlertDescription, 
+  AlertTitle, 
+} from "@/components/ui/alert"
+import { 
+  Button, 
+} from "@/components/ui/button"
+import { 
+  Input, 
+} from "@/components/ui/input"
+import { 
+  Label, 
+} from "@/components/ui/label"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
   const { data, setData, post, processing, errors } = useForm({
       email: '',
       password: '',
   })
-
   const errorArray = Object.values(errors);
-
   const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault()
       post('/login')
   }
-
   return (
     <form 
         method="POST"

@@ -9,11 +9,7 @@ import {
 } from "@/components/ui/sidebar"
 import { type MainNavItems } from "@/types"
 
-export function NavMain({ 
-  items = [], 
-}: {
-  items: MainNavItems[]
-}) {
+export function NavMain({ items = [] }: { items: MainNavItems[] }) {
     return (
       <SidebarGroup>
         <SidebarGroupLabel>Menu</SidebarGroupLabel>
