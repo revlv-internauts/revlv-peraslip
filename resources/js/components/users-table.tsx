@@ -116,7 +116,6 @@ export function UsersTable({ users }: UsersTableProps) {
                                     >
                                         <Link 
                                             href={`/users/${user.id}/edit`}
-                                            as="button" 
                                         >
                                                 <SquarePen />
                                                 Edit

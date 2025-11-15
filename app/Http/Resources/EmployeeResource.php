@@ -28,7 +28,7 @@ class EmployeeResource extends JsonResource
             'bank_number' => $this->bank_number,
             'basic_pay' => $this->basic_pay,
             'sss_number' => $this->sss_number,
-            'umid_number' => $this->umid_number,
+            'gsis_number' => $this->gsis_number,
             'philhealth_number' => $this->philhealth_number,
             'pagibig_number' => $this->pagibig_number,
             'tin_number' => $this->tin_number,

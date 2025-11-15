@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('bank_number')->unique();
             $table->decimal('basic_pay', 10, 2);
             $table->string('sss_number')->unique();
-            $table->string('umid_number')->unique();
+            $table->string('gsis_number')->unique();
             $table->string('philhealth_number')->unique();
             $table->string('pagibig_number')->unique();
             $table->string('tin_number')->unique();

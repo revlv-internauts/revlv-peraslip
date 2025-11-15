@@ -29,7 +29,7 @@ class EmployeeFactory extends Factory
             'bank_number' => fake()->unique()->numerify('#############'),
             'basic_pay' => fake()->randomNumber(3, 2),
             'sss_number' => fake()->unique()->numerify('##########'),
-            'umid_number' => fake()->unique()->numerify('############'),
+            'gsis_number' => fake()->unique()->numerify('###########'),
             'philhealth_number' => fake()->unique()->numerify('############'),
             'pagibig_number' => fake()->unique()->numerify('############'),
             'tin_number' => fake()->unique()->numerify('#########'),

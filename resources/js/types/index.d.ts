@@ -66,7 +66,7 @@ export interface Employee {
     department_id: number;
     basic_pay: number;
     sss_number: string;
-    umid_number: string;
+    gsis_number: string;
     philhealth_number: string;
     pagibig_number: string;
     tin_number: string;

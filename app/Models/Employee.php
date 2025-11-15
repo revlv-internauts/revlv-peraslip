@@ -30,7 +30,7 @@ class Employee extends Model
         'bank_number',
         'basic_pay',
         'sss_number',
-        'umid_number',
+        'gsis_number',
         'philhealth_number',
         'pagibig_number',
         'tin_number',
@@ -45,9 +45,6 @@ class Employee extends Model
     {
         return $this->belongsTo(Department::class);
     }
-
-    // $employee = Employee::find($employeeId); // Find employee by ID
-    // $employeePayrolls = $employee->payrolls; // Access the related payrolls through the relations    
 
     public function getFullName(): string
     {

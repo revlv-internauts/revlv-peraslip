@@ -234,18 +234,18 @@ export default function EmployeesCreate({ departments }: any) {
                                         </div>
 
                                         <div className="sm:col-span-2">
-                                            <label htmlFor="umid_number" className="block text-sm/6 font-medium text-gray-900">
-                                                UMID Number
+                                            <label htmlFor="gsis_number" className="block text-sm/6 font-medium text-gray-900">
+                                                GSIS Number
                                             </label>
                                             <div className="mt-2">
                                                 <input
-                                                    id="umid_number"
-                                                    name="umid_number"
+                                                    id="gsis_number"
+                                                    name="gsis_number"
                                                     type="text"
                                                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 sm:text-sm/6"
                                                 />
                                             </div>
-                                            {errors.umid_number && <div className="text-red-500">{errors.umid_number}</div>}
+                                            {errors.gsis_number && <div className="text-red-500">{errors.gsis_number}</div>}
                                         </div>
 
                                         <div className="sm:col-span-4">

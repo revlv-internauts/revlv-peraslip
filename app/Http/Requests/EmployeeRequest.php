@@ -76,11 +76,11 @@ class EmployeeRequest extends FormRequest
                 'min:10',
                 'max:10',
             ],
-            'umid_number' => [
+            'gsis_number' => [
                 'required',
                 'string',
-                'min:12',
-                'max:12',
+                'min:11',
+                'max:11',
             ],
             'philhealth_number' => [
                 'required',

@@ -191,7 +191,6 @@ export function EmployeesTable({ employees }: EmployeeTableProps) {
                                             >
                                                 <Link 
                                                     href={`/employees/${employee.id}/edit`}
-                                                    as="button" 
                                                 >
                                                         <SquarePen />
                                                         Edit

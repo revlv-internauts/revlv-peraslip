@@ -125,7 +125,6 @@ export function DepartmentsTable({ departments }: DepartmentTableProps) {
                                             >
                                                 <Link 
                                                     href={`/departments/${department.id}/edit`}
-                                                    as="button" 
                                                 >
                                                         <SquarePen />
                                                         Edit
