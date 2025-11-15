@@ -27,8 +27,8 @@ const mainNavItems: MainNavItems[] = [
     icon: LayoutDashboard,
   },
   {
-    title: "Payrolls",
-    url: "/payrolls",
+    title: "Payroll",
+    url: "/payroll",
     icon: Banknote,
   },
   {

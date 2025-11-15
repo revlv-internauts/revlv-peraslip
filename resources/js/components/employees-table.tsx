@@ -118,82 +118,90 @@ export function EmployeesTable({ employees }: EmployeeTableProps) {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {employees.data.map((employee) => (
-                        <TableRow key={employee.id}>
-                            <TableCell
-                                className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
-                            >
-                                {employee.employee_id}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                <Link href={`/employees/${employee.id}`}>
-                                    {employee.full_name}
-                                </Link>
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.email}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.date_of_hiring}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.phone_number}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.bank_number}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {employee.department?.name}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(employee.created_at)}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(employee.updated_at)}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
-                            >
-                                <div className="flex justify-end space-x-2">
-                                    <Button
-                                        className="bg-red-700 hover:bg-red-600"
-                                        onClick={() => handleDelete(employee.id)}
+                        {employees.data.length === 0 ? (
+                            <TableRow>
+                                <TableCell colSpan={10} className="py-6 text-center text-sm text-gray-600">
+                                    No records yet for the employees.
+                                </TableCell>
+                            </TableRow>
+                        ) : (
+                            employees.data.map((employee) => (
+                                <TableRow key={employee.id}>
+                                    <TableCell
+                                        className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
                                     >
-                                        <Trash />
-                                        Delete
-                                    </Button>
-                                    <Button
-                                        asChild
-                                        className="bg-green-700 hover:bg-green-600"
+                                        {employee.employee_id}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
                                     >
-                                        <Link 
-                                            href={`/employees/${employee.id}/edit`}
-                                            as="button" 
-                                        >
-                                                <SquarePen />
-                                                Edit
+                                        <Link href={`/employees/${employee.id}`}>
+                                            {employee.full_name}
                                         </Link>
-                                    </Button>
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        ))}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {employee.email}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {employee.date_of_hiring}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {employee.phone_number}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {employee.bank_number}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {employee.department?.name}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {dateFormatter(employee.created_at)}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {dateFormatter(employee.updated_at)}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
+                                    >
+                                        <div className="flex justify-end space-x-2">
+                                            <Button
+                                                className="bg-red-700 hover:bg-red-600"
+                                                onClick={() => handleDelete(employee.id)}
+                                            >
+                                                <Trash />
+                                                Delete
+                                            </Button>
+                                            <Button
+                                                asChild
+                                                className="bg-green-700 hover:bg-green-600"
+                                            >
+                                                <Link 
+                                                    href={`/employees/${employee.id}/edit`}
+                                                    as="button" 
+                                                >
+                                                        <SquarePen />
+                                                        Edit
+                                                </Link>
+                                            </Button>
+                                        </div>
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                        )}
                     </TableBody>
                 </Table>
             </div>

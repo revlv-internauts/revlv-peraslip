@@ -82,52 +82,60 @@ export function DepartmentsTable({ departments }: DepartmentTableProps) {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {departments.data.map((department) => (
-                        <TableRow key={department.id}>
-                            <TableCell
-                                className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
-                            >
-                                <Link href={`/departments/${department.id}`}>
-                                    {department.name}
-                                </Link>
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(department.created_at)}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
-                            >
-                                {dateFormatter(department.updated_at)}
-                            </TableCell>
-                            <TableCell
-                                className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
-                            >
-                                <div className="flex justify-end space-x-2">
-                                    <Button
-                                        className="bg-red-700 hover:bg-red-600"
-                                        onClick={() => handleDelete(department.id)}
+                        {departments.data.length === 0 ? (
+                            <TableRow>
+                                <TableCell colSpan={4} className="py-6 text-center text-sm text-gray-600">
+                                    No records yet for the departments.
+                                </TableCell>
+                            </TableRow>
+                        ) : (
+                            departments.data.map((department) => (
+                                <TableRow key={department.id}>
+                                    <TableCell
+                                        className="py-4 pr-3 pl-4 text-sm whitespace-nowrap text-gray-900 sm:pl-6"
                                     >
-                                        <Trash />
-                                        Delete
-                                    </Button>
-                                    <Button
-                                        asChild
-                                        className="bg-green-700 hover:bg-green-600"
-                                    >
-                                        <Link 
-                                            href={`/departments/${department.id}/edit`}
-                                            as="button" 
-                                        >
-                                                <SquarePen />
-                                                Edit
+                                        <Link href={`/departments/${department.id}`}>
+                                            {department.name}
                                         </Link>
-                                    </Button>
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                        ))}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {dateFormatter(department.created_at)}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 px-3 text-sm whitespace-nowrap text-gray-900"
+                                    >
+                                        {dateFormatter(department.updated_at)}
+                                    </TableCell>
+                                    <TableCell
+                                        className="py-4 pr-4 pl-3 text-sm font-medium whitespace-nowrap sm:pr-6"
+                                    >
+                                        <div className="flex justify-end space-x-2">
+                                            <Button
+                                                className="bg-red-700 hover:bg-red-600"
+                                                onClick={() => handleDelete(department.id)}
+                                            >
+                                                <Trash />
+                                                Delete
+                                            </Button>
+                                            <Button
+                                                asChild
+                                                className="bg-green-700 hover:bg-green-600"
+                                            >
+                                                <Link 
+                                                    href={`/departments/${department.id}/edit`}
+                                                    as="button" 
+                                                >
+                                                        <SquarePen />
+                                                        Edit
+                                                </Link>
+                                            </Button>
+                                        </div>
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                        )}
                     </TableBody>
                 </Table>
             </div>
