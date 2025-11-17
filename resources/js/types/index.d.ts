@@ -53,7 +53,7 @@ export interface Department {
 }
 
 export interface Employee {
-    id: string;
+    id: number;
     employee_id: string;
     first_name: string;
     last_name: string;

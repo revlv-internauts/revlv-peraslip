@@ -28,7 +28,7 @@ type EmployeeTableProps = {
 }
 
 export function EmployeesTable({ employees }: EmployeeTableProps) {
-    const handleDelete = (id: string) => {
+    const handleDelete = (id: number) => {
         if(confirm("Are you sure you want to delete this employee?")) {
             router.delete(`/employees/${id}`)
         }

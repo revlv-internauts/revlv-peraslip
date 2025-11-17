@@ -59,7 +59,7 @@ export default function EmployeesEdit({ employee, departments }: EmployeeEditPro
                         <>
                             <div className="space-y-12 mt-4">
                                 <div className="border-b border-gray-900/10 pb-12">
-                                    <h2 className="text-base/7 font-semibold text-gray-900">Information for Employee ID: {employee.employee_id}</h2>
+                                    <h2 className="text-base/7 font-semibold text-gray-900">Information for Employee ID: {employee.id}</h2>
                                     <p className="mt-1 text-sm/6 text-gray-600">Edit with safety precautions.</p>
                                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
 

@@ -2,71 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Inertia\Inertia;
+use App\Exports\PayrollExport;
 use App\Models\Payroll;
-use App\Http\Resources\EmployeeResource;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Response;
+use Inertia\Inertia;
+use Maatwebsite\Excel\Excel;
 
 class PayrollController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $payrolls = Payroll::with('employee')
-            ->get();
+        $payrolls = Payroll::orderBy('end_date', 'desc')
+            ->paginate(10);
 
         return Inertia::render('dashboard/payrolls/index', [
             'payrolls' => $payrolls,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'start_date' => [
+                'required',
+                'date',
+            ],
+            'end_date' => [
+                'required',
+                'date',
+                'after_or_equal:start_date',
+            ],
+        ]);
+
+        $payroll = Payroll::create($validated);
+
+        return to_route('payrolls.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function destroy(Payroll $payroll)
     {
-        //
+        $payroll->delete();
+
+        return to_route('payrolls.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function export(Payroll $payroll)
     {
-        //
-    }
+        $startDate = Carbon::parse($payroll->start_date)->format('Y-m-d');
+        $endDate = Carbon::parse($payroll->end_date)->format('Y-m-d');
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $fileName = 'payroll_' . $startDate . '_to_' . $endDate . '.xlsx';
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return Excel::download(new PayrollExport($payroll->start_date, $payroll->end_date), $fileName);
     }
 }

@@ -65,7 +65,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
             type="email"
             value={data.email}
             onChange={(e) => setData('email', e.target.value)}
-            placeholder="e.g. user@revlv.com" 
+            placeholder="e.g., user@revlv.com" 
           />
         </div>
         <div className="grid gap-3">

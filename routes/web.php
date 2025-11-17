@@ -12,11 +12,20 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/', [AuthController::class, 'loginPage'])->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/users', UserController::class);
-    Route::resource('/employees', EmployeeController::class);
-    Route::resource('/payrolls', PayrollController::class);
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+    // Payroll
+    Route::resource('/payrolls', PayrollController::class);
+    Route::get('/payrolls/{id}/export', [PayrollController::class, 'export'])->name('payrolls.export');
+
+    // Employee
+    Route::resource('/employees', EmployeeController::class);
+
+    // User
+    Route::resource('/users', UserController::class);
+
+    // Configurations
     Route::resource('/departments', DepartmentController::class);
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
